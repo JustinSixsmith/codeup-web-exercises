@@ -65,10 +65,19 @@
 
 // let perDiem = 3, littleMermaid = 3, brotherBear = 5, hercules = 1;
 // console.log(amountOwed = ("You owe ") + ("$") + (perDiem * (littleMermaid + brotherBear + hercules)));
-//
+
+// let littleMermaid = 3, brotherBear = 5, hercules = 1;
+// let movies = [littleMermaid, brotherBear, hercules]
+// let price = 3 * movies.reduce((a, b) => a + b, 0)
+// console.log("$" + price)
+
 // let googleRate = 400, amazonRate = 380, facebookRate = 350;
 // let googleHrs = 6, amazonHrs = 4, facebookHrs = 10;
 // console.log(amountPaid = ("You made ") + ("$") + (googleRate * googleHrs + amazonRate * amazonHrs + facebookRate * facebookHrs));
+// console.log(googleRate * googleHrs);
+// console.log(amazonRate * amazonHrs);
+// console.log(facebookRate * facebookHrs);
+
 
 // let notFull = false, scheduleClear = true;
 // console.log(canEnroll = (notFull) && (scheduleClear));
@@ -79,10 +88,11 @@
 //
 // console.log((notExpired) && (minimumItems >= 2) || (premiumMember));
 
-var username = 'codeup';
-var password = 'notastrongpassword';
-
+// let username = 'codeup';
+// let password = 'notastrongpassword';
+//
 // console.log(password.length >= 5);
 // console.log(!password.includes(username));
 // console.log(username.length <= 20);
-console.log(!username.startsWith(" ") && !username.endsWith(" ") && !password.startsWith(" ") && !password.endsWith(" "));
+// console.log(!username.startsWith(" ") && !username.endsWith(" ") && !password.startsWith(" ") && !password.endsWith(" "));
+
