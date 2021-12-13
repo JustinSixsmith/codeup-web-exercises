@@ -1,21 +1,31 @@
-"use strict";
+// "use strict";
+//
+// /**
+//  * TODO:
+//  * Create a function called 'sayHello' that takes a parameter 'name'.
+//  * When called, the function should return a message that says hello to the passed in name.
+//  *
+//  * Example
+//  * > sayHello("codeup") // returns "Hello, codeup!"
+//  */
+//
+function sayHello(name) {
+    return "Hello " + name + "!"
+}
+console.log(sayHello("codeup"));
 
-/**
- * TODO:
- * Create a function called 'sayHello' that takes a parameter 'name'.
- * When called, the function should return a message that says hello to the passed in name.
- *
- * Example
- * > sayHello("codeup") // returns "Hello, codeup!"
- */
+//
+// /**
+//  * TODO:
+//  * Call the function 'sayHello' and pass your name as a string literal argument.
+//  * Store the result of the function call in a variable named 'helloMessage'.
+//  *
+//  * console.log 'helloMessage' to check your work
+//  */
 
-/**
- * TODO:
- * Call the function 'sayHello' and pass your name as a string literal argument.
- * Store the result of the function call in a variable named 'helloMessage'.
- *
- * console.log 'helloMessage' to check your work
- */
+let helloMessage = sayHello("Justin");
+console.log(helloMessage);
+
 
 /**
  * TODO:
@@ -24,16 +34,9 @@
  * console.
  */
 
-let myName = "Justin";
+let myName = "Justin"
 
-function sayHello(name) {
-    return "Hello, " + name + "!";
-}
-let helloMessage = sayHello(myName);
-
-console.log(helloMessage);
-
-
+console.log("Passing variable as argument: " + sayHello(myName))
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -57,13 +60,17 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
-function isTwo(numberToTest) {
-    (numberToTest === 2) ? console.log(true) : console.log(false);
+function isTwo(num) {
+    if (num === 2) {
+        return true;
+    } else {
+        return false;
+    }
+    // return num === 2;
 }
-
-isTwo(random);
-
-
+console.log(isTwo(random));
+//
+//
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -76,18 +83,26 @@ isTwo(random);
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-/**
- * TODO:
- * Use prompt and alert in combination with your calculateTip function to
- * prompt the user for the bill total and a percentage they would like to tip,
- * then display the dollar amount they should tip
- */
+// function calculateTip(tipPercentage, totalBill) {
+//     return Math.round((tipPercentage * totalBill) * 100) / 100;
+// }
+//
+// console.log(calculateTip(0.20, 20));
+// console.log(calculateTip(0.25, 25.50));
+// console.log(calculateTip(0.15, 33.42));
+//
+// /**
+//  * TODO:
+//  * Use prompt and alert in combination with your calculateTip function to
+//  * prompt the user for the bill total and a percentage they would like to tip,
+//  * then display the dollar amount they should tip
+//  */
+//
+// let tipPercent = prompt("What percentage would you like to tip?");
+// let totalBill = prompt("How much was your total bill?");
+// tipPercent = tipPercent / 100;
+// alert("The tip should be:  $" + calculateTip(tipPercent, totalBill));
 
-(function calculateTip () {
-    let tipPercent = prompt("What tip percentage would you like?");
-    let billTotal = prompt("How much was the total bill?");
-    alert("Your tip amount is " + "$" + (parseFloat(tipPercent) * parseFloat(billTotal)).toFixed(2));
-})()
 
 /**
  * TODO:
@@ -105,8 +120,14 @@ isTwo(random);
  */
 
 
-function applyDiscount(originalPrice, discountPercent) {
-    let discountPrice = originalPrice - originalPrice * discountPercent;
-    return "Your discounted price is " + "$" + discountPrice.toFixed(2);
+// function applyDiscount(price, discountPercent) {
+//     let discountPrice = price - originalPrice * discountPercent;
+//     return "Your discounted price is " + "$" + discountPrice.toFixed(2);
+// }
+// console.log(applyDiscount(45.99, 0.12));
+
+function applyDiscount(price, discountPercentage) {
+    return price - (price * discountPercentage).toFixed(2);
 }
-console.log(applyDiscount(45.99, 0.12));
+
+console.log(applyDiscount(50, .27));
