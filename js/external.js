@@ -66,9 +66,9 @@ let minimumItems = prompt("How many items are you purchasing?");
 let premiumMember = confirm("Are you a premium member?");
 
 if (notExpired && ((parseInt(minimumItems) > 2) || (premiumMember))) {
-   alert("You may take advantage of the offer!");
+   alert("You may take advantage of our offer!");
 }else {
-    alert("No offer available.");
+    alert("Offer not available.");
 }
 
-console.log((notExpired) && (minimumItems >= 2) || (premiumMember));
+// console.log((notExpired) && (minimumItems >= 2) || (premiumMember));
