@@ -2,66 +2,111 @@
 // Functions using conditionals but not loops or arrays:
 //
 //     Make a function named isOdd(number)
-
 function isOdd(number) {
     if (number % 2 !== 0) {
-        return console.log(true);
-}else {
-        return console.log(false);
-}}
-isOdd(31);
-
-// Make a function named isEven(number)
-
-function isEven(number) {
-    if (number % 2 === 0) {
-        return console.log(true);
-    }else {
-        return console.log(false);
-    }}
-isEven(32);
-
-// Make a function named identity(input) that returns the input exactly as provided.
-
-function identity(input) {
-    return console.log(input)
-}
-identity("words");
-
-//     Make a function named isFive(input)
-
-function isFive(hopefullyFive) {
-    if (hopefullyFive === 5) {
-        return console.log(true);
-    }else {
-        return console.log(false);
+        return true;
+    } else {
+        return false;
     }
 }
-isFive(5);
+console.log(isOdd(31));
+
+// Make a function named isEven(number)
+function isEven(number) {
+    if (number % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isEven(32));
+
+// Make a function named identity(input) that returns the input exactly as provided.
+function identity(stuff) {
+    return stuff;
+}
+console.log(identity("word"));
+
+//     Make a function named isFive(input)
+function isFive(hopefullyFive) {
+    if (hopefullyFive === 5) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isFive(5));
 
 // Make a function named addFive(input) that adds five to some input.
-
 function addFive(needsFive) {
-    let plusFive = (needsFive + 5)
-    return console.log(plusFive)
+    return needsFive + 5;
 }
-
-addFive(67);
+console.log(addFive(67));;
 
 
 //     Make a function named isMultipleOfFive(input)
-
-
-
+function isMultipleOfFive(multiplyByFive) {
+    return multiplyByFive * 5;
+}
+console.log(isMultipleOfFive(5));
 
 // Make a function named isThree(input)
+function isThree(hopefullyThree) {
+    return hopefullyThree === 3;
+}
+console.log(isThree(3));
+
 // Make a function named isMultipleOfThree(input)
+function isMultipleOfThree(divisibleByThree) {
+    return divisibleByThree % 3 === 0;
+}
+console.log(isMultipleOfThree(12));
+
 // Make a function named isMultipleOfThreeAndFive(input)
+function isMultipleOfThreeAndFive(a) {
+    return (a % 3 && 5) === 0;
+}
+console.log(isMultipleOfThreeAndFive(45));
+
 // Make a function named isMultipleOf(target, n) which checks if target is evenly divisible by n
+function isMultipleOf(target, n) {
+    return target % n === 0;
+}
+console.log(isMultipleOf(25, 4));
+
 // Make a function named isTrue(boolean)
+function isTrue(boolean) {
+    if (boolean === true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isTrue(true));
+
 // Make a function named isFalse(boolean)
+function isFalse(boolean) {
+    if (boolean === !true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isFalse(false));
+
 // Make a function named isTruthy(input), remember that values other than true will behave like true
+function isTruthy(something) {
+    if (typeof something == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isTruthy(3));
+
 // Make a function named isFalsy(input), remember that values other than false behave like false
+
+
 // Make a function named isVowel(letter)
 // Make a function named isConsonant(letter)
 // Make a function named isCapital(letter)

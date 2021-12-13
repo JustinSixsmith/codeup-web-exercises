@@ -10,7 +10,7 @@
 //  */
 //
 function sayHello(name) {
-    return "Hello " + name + "!"
+    return "Hello " + name + "!";
 }
 console.log(sayHello("codeup"));
 
@@ -34,9 +34,9 @@ console.log(helloMessage);
  * console.
  */
 
-let myName = "Justin"
+let myName = "Justin";
 
-console.log("Passing variable as argument: " + sayHello(myName))
+console.log("Passing variable as argument: " + sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random

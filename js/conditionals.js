@@ -23,16 +23,16 @@
  */
 
 // function analyzeColor(anyColor) {
-//     if (anyColor === "blue") {
-//         return console.log("blue is the color of the sky");
-//     } else if (anyColor === "red") {
-//         return console.log("Strawberries are red");
+//     if (anyColor.toLowerCase() === "blue") {
+//         return "blue is the color of the sky";
+//     } else if (anyColor.toLowerCase() === "red") {
+//         return "Strawberries are red";
 //     } else {
-//         return console.log("I don't know anything about " + anyColor);
+//         return "I don't know anything about " + anyColor.toLowerCase();
 //     }
 //
 // }
-// analyzeColor("cyan");
+// console.log(analyzeColor("blue"));
 
 
 // Don't change the next two lines!
@@ -49,35 +49,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 // function analyzeColor(anyColor) {
-//     if (anyColor === "blue") {
-//         return console.log("blue is the color of the sky");
-//     } else if (anyColor === "red") {
-//         return console.log("Strawberries are red");
+//     if (anyColor.toLowerCase() === "blue") {
+//         return "blue is the color of the sky";
+//     } else if (anyColor.toLowerCase() === "red") {
+//         return "Strawberries are red";
 //     } else {
-//         return console.log("I don't know anything about " + anyColor);
+//         return "I don't know anything about " + anyColor.toLowerCase();
 //     }
 //
 // }
-// analyzeColor(randomColor);
+//
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
-// let anyColor = randomColor;
-//
-// switch(anyColor) {
-//     case "blue":
-//         console.log("blue is the color of the sky");
-//         break;
-//     case "red":
-//         console.log("Strawberries are red");
-//         break;
-//     default:
-//         console.log("I don't know anything about " + anyColor);
-//         break;
-// }
+let anyColor = randomColor;
+
+switch(anyColor) {
+    case "blue":
+        console.log("blue is the color of the sky");
+        break;
+    case "red":
+        console.log("Strawberries are red");
+        break;
+    default:
+        console.log("I don't know anything about " + anyColor);
+        break;R
+}
 
 /**
  * TODO:
@@ -86,19 +87,19 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * function to show it to the user.
  */
 
-let anyColor = prompt("What is your favorite color?");
-
-switch(anyColor) {
-    case "blue":
-        alert("blue is the color of the sky");
-        break;
-    case "red":
-        alert("Strawberries are red");
-        break;
-    default:
-        alert("I don't know anything about " + anyColor);
-        break;
-}
+// let anyColor = prompt("What is your favorite color?");
+//
+// switch(anyColor) {
+//     case "blue":
+//         alert("blue is the color of the sky");
+//         break;
+//     case "red":
+//         alert("Strawberries are red");
+//         break;
+//     default:
+//         alert("I don't know anything about " + anyColor);
+//         break;
+// }
 
 /* ########################################################################## */
 
