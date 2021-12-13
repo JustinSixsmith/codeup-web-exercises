@@ -107,11 +107,9 @@ isTwo(random);
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
-var originalPrice = 100;
-var discountPercent = .2;
 
-function applyDiscount(price, discount) {
-    return price - (price * discount);
+function applyDiscount(a, b) {
+    var discountPrice = parseFloat(a - (parseFloat(a) * parseFloat(b)));
+    return discountPrice;
 }
-
-console.log(applyDiscount(originalPrice, discountPercent);
+console.log("Your discounted price is " + "$" + applyDiscount(44.99, 0.12).toFixed(2));
