@@ -39,9 +39,21 @@ function isFive(hopefullyFive) {
 }
 isFive(5);
 
-
 // Make a function named addFive(input) that adds five to some input.
+
+function addFive(needsFive) {
+    let plusFive = (needsFive + 5)
+    return console.log(plusFive)
+}
+
+addFive(67);
+
+
 //     Make a function named isMultipleOfFive(input)
+
+
+
+
 // Make a function named isThree(input)
 // Make a function named isMultipleOfThree(input)
 // Make a function named isMultipleOfThreeAndFive(input)
