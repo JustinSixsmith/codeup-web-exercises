@@ -10,11 +10,27 @@
 //     var creditScore = 720;
 // var cashOnHand = 5000;
 
-let creditScore = 720;
-let cashOnHand = 5000;
+// let creditScore = 720;
+// let cashOnHand = 5000;
+//
+// if (creditScore >= 680 && cashOnHand >= 4000 || cashOnHand >= 10000) {
+//     console.log("Congratulations! You're pre-qualified!");
+// }else {
+//     console.log("No loan for you.");
+// }
 
-if (creditScore >= 680 && cashOnHand >= 4000 || cashOnHand >= 10000) {
-    console.log("Congratulations! You're pre-qualified!");
+// Declare a function called 'isFive' that takes in an input and returns true if that input is the number five. Otherwise it should return false.
+
+// function isFive(someNumber) {
+//     (someNumber === 5) ? console.log(true) : console.log(false);
+// }
+// isFive(4);
+
+function isFive(someNumber) {
+    if (someNumber === 5) {
+        return console.log(true);
 }else {
-    console.log("No loan for you.");
-}
+    return console.log(false);
+}}
+
+isFive(5);

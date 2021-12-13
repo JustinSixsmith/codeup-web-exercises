@@ -24,12 +24,12 @@
  * console.
  */
 
-var myName = "Justin";
+let myName = "Justin";
 
 function sayHello(name) {
     return "Hello, " + name + "!";
 }
-var helloMessage = sayHello(myName);
+let helloMessage = sayHello(myName);
 
 console.log(helloMessage);
 
@@ -83,14 +83,11 @@ isTwo(random);
  * then display the dollar amount they should tip
  */
 
-// var tipPercent = prompt("What tip percentage would you like?");
-// var billTotal = prompt("How much was the total bill?");
-//
-// function calculateTip (tip, total) {
-//     alert("Your tip amount is " + "$" + (parseFloat(tipPercent) * parseFloat(billTotal)));
-// }
-//
-// calculateTip(tipPercent, billTotal);
+(function calculateTip () {
+    let tipPercent = prompt("What tip percentage would you like?");
+    let billTotal = prompt("How much was the total bill?");
+    alert("Your tip amount is " + "$" + (parseFloat(tipPercent) * parseFloat(billTotal)).toFixed(2));
+})()
 
 /**
  * TODO:
@@ -109,7 +106,7 @@ isTwo(random);
 
 
 function applyDiscount(originalPrice, discountPercent) {
-    var discountPrice = originalPrice - originalPrice * discountPercent;
+    let discountPrice = originalPrice - originalPrice * discountPercent;
     return "Your discounted price is " + "$" + discountPrice.toFixed(2);
 }
-console.log(applyDiscount(44.99, 0.12));
+console.log(applyDiscount(45.99, 0.12));
