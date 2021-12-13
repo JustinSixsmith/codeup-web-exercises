@@ -83,13 +83,14 @@ isTwo(random);
  * then display the dollar amount they should tip
  */
 
-function calculateTip(a, b) {
-    var tipAmount = parseInt(a) * parseInt(b);
-    return
-}
-
-
-
+// var tipPercent = prompt("What tip percentage would you like?");
+// var billTotal = prompt("How much was the total bill?");
+//
+// function calculateTip (tip, total) {
+//     alert("Your tip amount is " + "$" + (parseFloat(tipPercent) * parseFloat(billTotal)));
+// }
+//
+// calculateTip(tipPercent, billTotal);
 
 /**
  * TODO:
@@ -105,3 +106,12 @@ function calculateTip(a, b) {
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+var originalPrice = 100;
+var discountPercent = .2;
+
+function applyDiscount(price, discount) {
+    return price - (price * discount);
+}
+
+console.log(applyDiscount(originalPrice, discountPercent);
