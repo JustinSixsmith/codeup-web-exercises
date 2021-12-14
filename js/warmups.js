@@ -19,18 +19,28 @@
 //     console.log("No loan for you.");
 // }
 
+
 // Declare a function called 'isFive' that takes in an input and returns true if that input is the number five. Otherwise it should return false.
 
 // function isFive(someNumber) {
 //     (someNumber === 5) ? console.log(true) : console.log(false);
 // }
 // isFive(4);
+//
+// function isFive(someNumber) {
+//     if (someNumber === 5) {
+//         return console.log(true);
+// }else {
+//     return console.log(false);
+// }}
+//
+// isFive(5);
 
-function isFive(someNumber) {
-    if (someNumber === 5) {
-        return console.log(true);
-}else {
-    return console.log(false);
-}}
 
-isFive(5);
+// Make a function named isMultipleOfThree that takes in an input and returns a boolean indicating whether or not the input is a multiple of three.
+
+function isMultipleOfThree(x) {
+    return x % 3 == 0;
+}
+
+console.log(isMultipleOfThree(48));

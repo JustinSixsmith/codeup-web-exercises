@@ -75,34 +75,13 @@ function isMultipleOf(target, n) {
 console.log(isMultipleOf(25, 4));
 
 // Make a function named isTrue(boolean)
-function isTrue(boolean) {
-    if (boolean === true) {
-        return true;
-    } else {
-        return false;
-    }
-}
-console.log(isTrue(true));
+
 
 // Make a function named isFalse(boolean)
-function isFalse(boolean) {
-    if (boolean === !true) {
-        return true;
-    } else {
-        return false;
-    }
-}
-console.log(isFalse(false));
+
 
 // Make a function named isTruthy(input), remember that values other than true will behave like true
-function isTruthy(something) {
-    if (typeof something == true) {
-        return true;
-    } else {
-        return false;
-    }
-}
-console.log(isTruthy(3));
+
 
 // Make a function named isFalsy(input), remember that values other than false behave like false
 
