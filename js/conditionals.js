@@ -12,23 +12,23 @@
 // HINT: use return in the conditional code blocks to prevent from printing multiple times for the same argument
 // Add, commit, and push to GitHub.
 
-function analyzeColor1(color) {
-    if (color === "blue") {
-        return "blue is the color of the sky";
-    }
-    if (color === "red") {
-        return "red is the color of love";
-    }
-    if (color === "green") {
-        return "green is the color of envy";
-    }
-        return "I don't know that color";
-}
-
-console.log(analyzeColor1("blue"));
-console.log(analyzeColor1("red"));
-console.log(analyzeColor1("green"));
-console.log(analyzeColor1("violet"));
+// function analyzeColor1(color) {
+//     if (color === "blue") {
+//         return "blue is the color of the sky";
+//     }
+//     if (color === "red") {
+//         return "red is the color of love";
+//     }
+//     if (color === "green") {
+//         return "green is the color of envy";
+//     }
+//         return "I don't know that color";
+// }
+//
+// console.log(analyzeColor1("blue"));
+// console.log(analyzeColor1("red"));
+// console.log(analyzeColor1("green"));
+// console.log(analyzeColor1("violet"));
 
 
 /**
@@ -61,6 +61,8 @@ console.log(analyzeColor1("violet"));
 //     }
 //
 // }
+
+
 // console.log(analyzeColor("blue"));
 
 
@@ -95,19 +97,22 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
-let anyColor = randomColor;
-
-switch(anyColor) {
-    case "blue":
-        console.log("blue is the color of the sky");
-        break;
-    case "red":
-        console.log("Strawberries are red");
-        break;
-    default:
-        console.log("I don't know anything about " + anyColor);
-        break;
-}
+// let anyColor = randomColor;
+//
+// switch(anyColor) {
+//     case "blue":
+//         console.log("blue is the color of the sky");
+//         break;
+//     case "red":
+//         console.log("Strawberries are red");
+//         break;
+//     default:
+//         console.log("I don't know anything about " + anyColor);
+//         break;
+// }
+//
+// console.log("blue");
+// console.log("red");
 
 /**
  * TODO:
@@ -152,7 +157,37 @@ switch(anyColor) {
  * return value.
  */
 
-
+// function calculateTotal(luckyNumber, price) {
+//      switch(luckyNumber) {
+//          case 0:
+//              console.log("Your \"discounted\" price is $" + price);
+//              break;
+//          case 1:
+//              console.log("Your discounted price is $" + (price - price * .1));
+//              break;
+//          case 2:
+//              console.log("Your discounted price is $" + (price - price * .25));
+//              break;
+//          case 3:
+//              console.log("Your discounted price is $" + (price - price * .35));
+//              break;
+//          case 4:
+//              console.log("Your discounted price is $" + (price - price * .50));
+//              break;
+//          case 5:
+//              console.log("Everything is free!");
+//              break;
+//          default:
+//              console.log("You did not provide a valid lucky number.");
+//              break;
+//      }
+// }
+// calculateTotal(0, 100);
+// calculateTotal(1, 100);
+// calculateTotal(2, 100);
+// calculateTotal(3, 100);
+// calculateTotal(4, 100);
+// calculateTotal(5, 100);
 
 /**
  * TODO:
@@ -164,6 +199,34 @@ switch(anyColor) {
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+//
+// function calculateTotal(luckyNumber, price) {
+//     switch(luckyNumber) {
+//         case 0:
+//             console.log("Your \"discounted\" price is $" + price);
+//             break;
+//         case 1:
+//             console.log("Your discounted price is $" + (price - price * .1));
+//             break;
+//         case 2:
+//             console.log("Your discounted price is $" + (price - price * .25));
+//             break;
+//         case 3:
+//             console.log("Your discounted price is $" + (price - price * .35));
+//             break;
+//         case 4:
+//             console.log("Your discounted price is $" + (price - price * .50));
+//             break;
+//         case 5:
+//             console.log("Everything is free!");
+//             break;
+//         default:
+//             console.log("You did not provide a valid lucky number.");
+//             break;
+//     }
+// }
+// calculateTotal(luckyNumber, 100);
+
 
 /**
  * TODO:
@@ -183,3 +246,31 @@ switch(anyColor) {
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+function gimmeNumber() {
+    if (confirm("Would you like to ender a number?") === true) {
+        let aNumber = prompt("Please enter a number.");
+        aNumber = parseInt(aNumber);
+
+        if (isNaN(aNumber)) {
+            alert("That is not a number.");
+            return;
+        }
+
+        if (aNumber % 2 === 0) {
+            alert("Your number is even.");
+        } else {
+            alert("Your number is odd.");
+        }
+
+        alert(aNumber + 100);
+
+        if (aNumber < 0) {
+            alert("Your number is negative.");
+        } else {
+            alert("Your number is positive.")
+        }
+    }
+}
+
+gimmeNumber();
