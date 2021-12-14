@@ -40,7 +40,6 @@
 // Make a function named isMultipleOfThree that takes in an input and returns a boolean indicating whether or not the input is a multiple of three.
 
 function isMultipleOfThree(x) {
-    return x % 3 == 0;
+    return x % 3 === 0;
 }
-
 console.log(isMultipleOfThree(48));

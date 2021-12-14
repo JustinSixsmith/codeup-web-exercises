@@ -2,6 +2,35 @@
 
 /* ########################################################################## */
 
+// Create a file named conditionals.js inside the js directory.
+//     Create a function called analyzeColor1 that takes a parameter called color
+// In your function, use ONLY if statements to print the following:
+// “blue is the color of the sky” if the value of color is “blue”
+// “red is the color of love” if the value of color is “red”
+// “green is the color of envy” if the value of color is “green”
+// “I don’t know that color” if the value of color is anything else
+// HINT: use return in the conditional code blocks to prevent from printing multiple times for the same argument
+// Add, commit, and push to GitHub.
+
+function analyzeColor1(color) {
+    if (color === "blue") {
+        return "blue is the color of the sky";
+    }
+    if (color === "red") {
+        return "red is the color of love";
+    }
+    if (color === "green") {
+        return "green is the color of envy";
+    }
+        return "I don't know that color";
+}
+
+console.log(analyzeColor1("blue"));
+console.log(analyzeColor1("red"));
+console.log(analyzeColor1("green"));
+console.log(analyzeColor1("violet"));
+
+
 /**
  * TODO:
  * Create a function named `analyzeColor` that accepts a string that is a color
@@ -77,7 +106,7 @@ switch(anyColor) {
         break;
     default:
         console.log("I don't know anything about " + anyColor);
-        break;R
+        break;
 }
 
 /**
