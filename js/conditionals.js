@@ -248,7 +248,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 function gimmeNumber() {
-    if (confirm("Would you like to ender a number?") === true) {
+    if (confirm("Would you like to enter a number?") === true) {
         let aNumber = prompt("Please enter a number.");
         aNumber = parseInt(aNumber);
 
