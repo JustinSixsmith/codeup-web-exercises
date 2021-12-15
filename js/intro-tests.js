@@ -6,16 +6,21 @@
 
 function count(aWord) {
 
-    if (aWord === (typeof "string") {
-        console.log(aWord.length);
+    if (typeof aWord === "string") {
+        return aWord.length;
     } else {
-        console.log(false);
+        return false;
     }
 }
-count("word");
+console.log(count("this is a string"));
 
-// function wordLengthTest() {
-//
-//     let wordLength = count(4);
-//     console.log("Expect to return false when passed anything other than a string: " + (typeof wordLength);
-// }
+
+function countTest() {
+
+    console.log(count("word") === 4);
+    console.log(count(4) === false);
+    console.log(count(true) === false);
+    console.log(count(undefined) === false);
+    console.log(count(null) === false);
+}
+countTest();
