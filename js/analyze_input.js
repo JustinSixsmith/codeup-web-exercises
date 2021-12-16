@@ -32,7 +32,6 @@ function analyzeInput(someInput) {
         } else {
             console.log("Your number is positive.");
         }
-        return;
     }
 
     // if (aString === "a") {
