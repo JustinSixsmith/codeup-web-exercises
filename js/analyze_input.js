@@ -17,24 +17,31 @@
 
 
 function analyzeInput(someInput) {
-    let stringInput =
-    let numberInput = (typeof someInput === "number");
 
-    if (stringInput.length > 1) {
-        console.log(stringInput);
+    if (typeof someInput === "number") {
+        if (someInput % 2 === 0) {
+            console.log("Your number is even.");
+        } else {
+            console.log("Your number is odd.");
+        }
+
+        if (aNumber < 0) {
+            console.log("Your number is negative.");
+        } else if (aNumber === 0) {
+            console.log("Your number is zero.");
+        } else {
+            console.log("Your number is positive.");
+        }
+        return;
     }
-}
+
+    // if (aString === "a") {
+    //         console.log("Your letter is a vowel.")
+    //     }
+    // }
+
 
 analyzeInput(4);
-
-console.log()
-
-
-
-
-
-
-
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
