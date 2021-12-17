@@ -17,31 +17,34 @@
 
 
 function analyzeInput(someInput) {
-
-    if (typeof someInput === "number") {
-        if (someInput % 2 === 0) {
-            console.log("Your number is even.");
+    if (typeof someInput === "string") {
+        if (someInput.length === 1) {
+            if (someInput === "a" || someInput === "e" || someInput === "o" || someInput === "u") {
+                console.log("Your letter is a vowel.");
+            } else {
+                console.log("Your input is not a vowel.");
+            }
         } else {
-            console.log("Your number is odd.");
+            console.log("Your string is " + someInput.length + " characters long.");
         }
 
-        if (aNumber < 0) {
+    } else if (typeof someInput === "number") {
+        if (parseInt(someInput) % 2 === 0) {
+            console.log("Your number is even.");
+        } else if (parseInt(someInput) % 2 !== 0) {
+            console.log("Your number is odd.");
+        }
+        if (parseInt(someInput) < 0) {
             console.log("Your number is negative.");
-        } else if (aNumber === 0) {
+        } else if (someInput === 0) {
             console.log("Your number is zero.");
         } else {
             console.log("Your number is positive.");
         }
     }
+}
 
-    // if (aString === "a") {
-    //         console.log("Your letter is a vowel.")
-    //     }
-    // }
-
-
-analyzeInput(4);
-
+analyzeInput("poised");
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
