@@ -3,23 +3,17 @@
 //
 //     Make a function named isOdd(number)
 function isOdd(number) {
-    if (number % 2 !== 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return number % 2 !== 0;
 }
 console.log(isOdd(31));
 
+
 // Make a function named isEven(number)
 function isEven(number) {
-    if (number % 2 === 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return number % 2 === 0;
 }
 console.log(isEven(32));
+
 
 // Make a function named identity(input) that returns the input exactly as provided.
 function identity(stuff) {
@@ -27,21 +21,19 @@ function identity(stuff) {
 }
 console.log(identity("word"));
 
+
 //     Make a function named isFive(input)
 function isFive(hopefullyFive) {
-    if (hopefullyFive === 5) {
-        return true;
-    } else {
-        return false;
-    }
+    return hopefullyFive === 5;
 }
 console.log(isFive(5));
+
 
 // Make a function named addFive(input) that adds five to some input.
 function addFive(needsFive) {
     return needsFive + 5;
 }
-console.log(addFive(67));;
+console.log(addFive(67));
 
 
 //     Make a function named isMultipleOfFive(input)
@@ -50,11 +42,13 @@ function isMultipleOfFive(multiplyByFive) {
 }
 console.log(isMultipleOfFive(5));
 
+
 // Make a function named isThree(input)
 function isThree(hopefullyThree) {
     return hopefullyThree === 3;
 }
 console.log(isThree(3));
+
 
 // Make a function named isMultipleOfThree(input)
 function isMultipleOfThree(divisibleByThree) {
@@ -62,11 +56,13 @@ function isMultipleOfThree(divisibleByThree) {
 }
 console.log(isMultipleOfThree(12));
 
+
 // Make a function named isMultipleOfThreeAndFive(input)
-function isMultipleOfThreeAndFive(a) {
-    return (a % 3 && 5) === 0;
+function isMultipleOfThreeAndFive(threeAndFive) {
+    return (threeAndFive % 3 && 5) === 0;
 }
 console.log(isMultipleOfThreeAndFive(45));
+
 
 // Make a function named isMultipleOf(target, n) which checks if target is evenly divisible by n
 function isMultipleOf(target, n) {
@@ -74,19 +70,45 @@ function isMultipleOf(target, n) {
 }
 console.log(isMultipleOf(25, 4));
 
+
 // Make a function named isTrue(boolean)
+function isTrue(boolean) {
+    return boolean === true;
+}
+
+console.log(isTrue(true));
 
 
 // Make a function named isFalse(boolean)
+function isFalse(boolean) {
+    return boolean === false;
+}
+
+console.log(isFalse(false));
 
 
 // Make a function named isTruthy(input), remember that values other than true will behave like true
+function isTruthy(trueInput) {
+    if (trueInput !== -0 || trueInput !== null || true || !isNaN(trueInput)) {
+        return "This input is truthy.";
+    }
+}
 
+console.log(isFalsy(0));
 
 // Make a function named isFalsy(input), remember that values other than false behave like false
+function isFalsy(falseInput) {
+    if (falseInput === -0 || falseInput === null || falseInput === false || isNaN(falseInput) || falseInput === undefined) {
+        return "This input is flasy.";
+    }
+}
+
+console.log(isFalsy(0));
 
 
 // Make a function named isVowel(letter)
+
+
 // Make a function named isConsonant(letter)
 // Make a function named isCapital(letter)
 // Make a function named isLowerCase(letter)
