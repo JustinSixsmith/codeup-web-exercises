@@ -19,7 +19,8 @@
 function analyzeInput(someInput) {
     if (typeof someInput === "string") {
         if (someInput.length === 1) {
-            if (someInput === "a" || someInput === "e" || someInput === "o" || someInput === "u") {
+            someInput = someInput.toLowerCase();
+            if (someInput === "a" || someInput === "e" || someInput === "i" || someInput === "o" || someInput === "u") {
                 console.log("Your letter is a vowel.");
             } else {
                 console.log("Your input is not a vowel.");
@@ -44,7 +45,7 @@ function analyzeInput(someInput) {
     }
 }
 
-analyzeInput(87);
+analyzeInput("A");
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

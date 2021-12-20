@@ -90,16 +90,16 @@ console.log(isFalse(false));
 // Make a function named isTruthy(input), remember that values other than true will behave like true
 function isTruthy(trueInput) {
     if (trueInput !== -0 || trueInput !== null || true || !isNaN(trueInput)) {
-        return "This input is truthy.";
+        return "This input is Truthy.";
     }
 }
 
-console.log(isFalsy(0));
+console.log(isTruthy(0));
 
 // Make a function named isFalsy(input), remember that values other than false behave like false
 function isFalsy(falseInput) {
     if (falseInput === -0 || falseInput === null || falseInput === false || isNaN(falseInput) || falseInput === undefined) {
-        return "This input is flasy.";
+        return "This input is Falsy.";
     }
 }
 
@@ -107,10 +107,27 @@ console.log(isFalsy(0));
 
 
 // Make a function named isVowel(letter)
+function isVowel(letter) {
+    letter = letter.toLowerCase();
+    return letter === "a" || letter === "e" || letter === "i" || letter === "o" || letter === "u";
+}
+
+console.log(isVowel("a"));
 
 
 // Make a function named isConsonant(letter)
+function isConsonant(letter) {
+    letter = letter.toLowerCase();
+    return letter !== "a" || letter !== "e" || letter !== "i" || letter !== "o" || letter !== "u";
+}
+
+console.log(isConsonant("a"));
+
+
 // Make a function named isCapital(letter)
+
+
+
 // Make a function named isLowerCase(letter)
 // Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
 // Make a function named isSpace(letter) that returns if a character is a space character
