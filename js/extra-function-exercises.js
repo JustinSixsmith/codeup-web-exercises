@@ -125,13 +125,45 @@ console.log(isConsonant("a"));
 
 
 // Make a function named isCapital(letter)
+function isCapital(letter) {
+    return letter === letter.toUpperCase();
+}
 
+console.log(isCapital("A"));
 
 
 // Make a function named isLowerCase(letter)
+function isLowerCase(letter) {
+    return letter === letter.toLowerCase();
+}
+
+console.log(isLowerCase("a"));
+
+
 // Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
+function hasLowerCase(string) {
+    return string !== string.toUpperCase();
+}
+
+console.log(hasLowerCase("AKJHFagAINIFN"));
+
+
 // Make a function named isSpace(letter) that returns if a character is a space character
+function isSpace(letter) {
+    return letter === " ";
+}
+
+console.log(isSpace(" "));
+
+
 // Make a function named isZero(number)
+function isZero(numberZero) {
+    return numberZero === 0;
+}
+
+console.log(isZero(0));
+
+
 // Make a function named notZero(input) that returns true if the input is not zero
 // Write a function named lowerCase(string)
 // Write a function named double(n) that returns a number times two

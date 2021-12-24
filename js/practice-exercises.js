@@ -20,17 +20,17 @@
 
 
 
-
+// Loops from 1 to 229
 for (let x = 1; x <= 229; x++) {
     let flag = 0;
 
+    // Divides x by every number from 2 through one number less than x
     for (y = 2; y < x; y++) {
         if (x % y === 0) {
             flag = 1;
             break;
         }
     }
-
     if (x > 1 && flag === 0) {
         console.log(x);
     }
