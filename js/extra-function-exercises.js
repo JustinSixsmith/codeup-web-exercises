@@ -165,10 +165,42 @@ console.log(isZero(0));
 
 
 // Make a function named notZero(input) that returns true if the input is not zero
+function notZero(isntZero) {
+    return isntZero !== 0;
+}
+
+console.log(notZero(1));
+
+
 // Write a function named lowerCase(string)
+function lowerCase(wantLowered) {
+    return wantLowered.toLowerCase();
+}
+
+console.log(lowerCase("HELLO"));
+
+
 // Write a function named double(n) that returns a number times two
+function double(n1) {
+    return n1 * 2;
+}
+
+console.log(double(4));
+
+
 // Write a function named triple(n) that returns a number times 3
+function triple(n2) {
+    return n2 * 3;
+}
+
+console.log(triple(4));
+
+
 // Write a function named quadruple(n) that returns a number times 4
+
+
+
+
 // Write a function named half(n) that returns 1/2 of the provided input
 // Write a function named subtract(a, b) that returns a minus b
 // Write a function named multiply(a, b) that returns the product of a times b
