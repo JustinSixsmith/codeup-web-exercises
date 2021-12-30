@@ -31,6 +31,7 @@ for (let x = 1; x <= 229; x++) {
             break;
         }
     }
+
     if (x > 1 && flag === 0) {
         console.log(x);
     }
