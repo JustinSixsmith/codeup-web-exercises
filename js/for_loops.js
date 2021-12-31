@@ -63,6 +63,3 @@ for (let z = 100; z >= 5; z--) {
     }
 }
 
-
-
-// Exercise #6:
