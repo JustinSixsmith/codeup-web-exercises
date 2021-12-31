@@ -3,7 +3,7 @@
 // let maybeOdd = prompt("Enter an odd number between 1 and 50.");
 //
 // while (isNaN(maybeOdd) || maybeOdd < 1 || maybeOdd > 50 || maybeOdd % 2 === 0) {
-//     alert("Invalid entry. Please try again.");
+//     alert("That is not an odd number. Please try again.");
 //     maybeOdd = prompt("Enter an odd number between 1 and 50.");
 // }
 //
@@ -13,8 +13,8 @@
 
 // Exercise #3: Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
 
-console.log("Number to skip is: 27");
-console.log("")
+// console.log("Number to skip is: 27");
+// console.log("")
 
 for (let i = 1; i < 100; i++) {
 
@@ -27,3 +27,5 @@ for (let i = 1; i < 100; i++) {
 
     console.log('Here is an odd number: ' + i);
 }
+
+
