@@ -54,11 +54,16 @@ function roll(dieOrDice) {
     let dice = splitStr[0];
     let sides = splitStr[1];
 
-    let result = Math.floor(Math.random() * (sides +1);
-
+    let results = "";
     for (times = 1; times <= dice; times++) {
+        let numberRolled = Math.floor(Math.random() * sides + 1);
+        results += numberRolled;
 
+        if (times < dice) {
+            results += ", ";
+        }
     }
+    console.log("[Rolls: " + results + "]");
 }
 
 roll("3d4");
