@@ -18,22 +18,27 @@
 // Recommend starting your loop at 1 and ending your loop once you've calculated 50 prime numbers.
 // https://en.wikipedia.org/wiki/Prime_number
 
-// // Loops from 1 to 229
-// for (let x = 1; x <= 229; x++) {
-//     let flag = 0;
-//
-//     // Divides x by every number from 2 through one number less than x
-//     for (y = 2; y < x; y++) {
-//         if (x % y === 0) {
-//             flag = 1;
-//             break;
-//         }
-//     }
-//
-//     if (x > 1 && flag === 0) {
-//         console.log(x);
-//     }
+// for (timesPrime = 0; timesPrime <= 50; timesPrime++) {
+//     if tim
 // }
+
+
+// Loops from 1 to 229
+for (let x = 1; x <= 229; x++) {
+    let flag = 0;
+
+    // Divides x by every number from 2 through one number less than x
+    for (y = 2; y < x; y++) {
+        if (x % y === 0) {
+            flag = 1;
+            break;
+        }
+    }
+
+    if (x > 1 && flag === 0) {
+        console.log(x);
+    }
+}
 
 
 
@@ -48,26 +53,26 @@
 //         total: 16
 // }
 
-function roll(dieOrDice) {
-
-    let splitStr = dieOrDice.split('d');
-    let dice = splitStr[0];
-    let sides = splitStr[1];
-
-    let results = "";
-    let total = 0;
-
-    for (times = 1; times <= dice; times++) {
-        let numberRolled = Math.floor(Math.random() * sides + 1);
-        results += numberRolled;
-        total += numberRolled;
-
-        if (times < dice) {
-            results += ", ";
-        }
-    }
-    console.log("Rolls: " + "[" + results + "]");
-    console.log("Total: " + total);
-}
-
-roll("3d4");
+// function roll(dieOrDice) {
+//
+//     let splitStr = dieOrDice.split('d');
+//     let dice = splitStr[0];
+//     let sides = splitStr[1];
+//
+//     let results = "";
+//     let total = 0;
+//
+//     for (times = 1; times <= dice; times++) {
+//         let numberRolled = Math.floor(Math.random() * sides + 1);
+//         results += numberRolled;
+//         total += numberRolled;
+//
+//         if (times < dice) {
+//             results += ", ";
+//         }
+//     }
+//     console.log("Rolls: [" + results + "]");
+//     console.log("Total: " + total);
+// }
+//
+// roll("6d12");
