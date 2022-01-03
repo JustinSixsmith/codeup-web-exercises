@@ -28,29 +28,32 @@ for (let x = 1; x <= 10; x++) {
 
 
 // Exercise #4:
+let numberPyramid = "";
 
 for (let y = 1; y < 10; y++) {
 
-    if (y === 1) {
-        console.log("" + y);
-    } else if (y === 2) {
-        console.log("" + y + y);
-    } else if (y === 3) {
-        console.log("" + y + y + y);
-    } else if (y === 4) {
-        console.log("" + y + y + y + y);
-    } else if (y === 5) {
-        console.log("" + y + y + y + y + y);
-    } else if (y === 6) {
-        console.log("" + y + y + y + y + y + y);
-    } else if (y === 7) {
-        console.log("" + y + y + y + y + y + y + y);
-    } else if (y === 8) {
-        console.log("" + y + y + y + y + y + y + y + y);
-    } else {
-        console.log("" + y + y + y + y + y + y + y + y + y);
-    }
-}
+
+
+//     if (y === 1) {
+//         console.log("" + y);
+//     } else if (y === 2) {
+//         console.log("" + y + y);
+//     } else if (y === 3) {
+//         console.log("" + y + y + y);
+//     } else if (y === 4) {
+//         console.log("" + y + y + y + y);
+//     } else if (y === 5) {
+//         console.log("" + y + y + y + y + y);
+//     } else if (y === 6) {
+//         console.log("" + y + y + y + y + y + y);
+//     } else if (y === 7) {
+//         console.log("" + y + y + y + y + y + y + y);
+//     } else if (y === 8) {
+//         console.log("" + y + y + y + y + y + y + y + y);
+//     } else {
+//         console.log("" + y + y + y + y + y + y + y + y + y);
+//     }
+// }
 
 
 

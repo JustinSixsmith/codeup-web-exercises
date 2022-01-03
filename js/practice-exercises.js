@@ -153,19 +153,20 @@
 //     Let’s continue with getMeaningOfLife: If the value of meaningfulNum happens to be 42, console log a separate message at the end of the function to say: "Did you bring your towel?"
 
 function getMeaningOfLife(meaningfulNum) {
-    let counter = 1;
+    let counter = 0;
 
-    if (isNaN(meaningfulNum)) {
-        console.log("Hint: The meaning of life is a number.")
-    } else {
-        while (counter !== meaningfulNum) {
-            console.log(counter);
+    meaningfulNum = parseInt(meaningfulNum);
+
+    if (meaningfulNum) {
+        while (meaningfulNum !== counter) {
             counter++;
         }
+        console.log("The meaning of life, the universe, and everything is " + counter + ".");
+
+        if (counter === 42) {
+            console.log("Did you bring your towel?");
+        }
     }
-    console.log(counter);
-    console.log("The meaning of life, the universe, and everything is " + meaningfulNum + ".")
 }
 
-
-getMeaningOfLife(42);
+getMeaningOfLife(34);

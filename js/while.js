@@ -1,11 +1,12 @@
-// While Loop Exercise #2:
+// // While Loop Exercise #2:
+//
+// let n1 = 2
+//
+// while (n1 <= 65536) {
+//     console.log(n1);
+//     n1 *= 2;
+// }
 
-let n1 = 2
-
-while (n1 <= 65536) {
-    console.log(n1);
-    n1 *= 2;
-}
 
 
 // Do While Loop vExercise:
@@ -23,6 +24,7 @@ do {
 
     console.log(conesSold + " cone(s) sold...");
     allCones = allCones - conesSold;
+    // console.log("I have " + allCones + " cone(s) left.");
 
     if (allCones === 0) {
         console.log("Yay! I sold all the cones!");
