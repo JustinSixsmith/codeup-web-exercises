@@ -16,3 +16,21 @@ function getPassword() {
 }
 
 getPassword();
+
+
+// function getBetterPassword2() {
+//     var answer = "howdy";
+//     var attempts = 0;
+//     var guess;
+//     do {
+//         guess = prompt("Enter your password: ");
+//         attempts++;
+//     } while(guess !== answer && attempts < 3);
+//     if(guess === answer) {
+//         alert("ok");
+//     } else {
+//         alert("not ok");
+//     }
+// }
+//
+// getBetterPassword2();

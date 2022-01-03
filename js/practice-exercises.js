@@ -114,31 +114,58 @@
 // How do you want to handle that?
 
 
-function getFizzBuzz(startingNum) {
-    if (startingNum % 3 === 0 && startingNum % 5 === 0) {
-        return "FIZZ BUZZ";
-    } else if (startingNum % 3 === 0) {
-        console.log("fizz");
-    } else if (startingNum % 5 === 0) {
-        console.log("buzz");
+// function getFizzBuzz(startingNum) {
+//     if (startingNum % 3 === 0 && startingNum % 5 === 0) {
+//         return "FIZZ BUZZ";
+//     } else if (startingNum % 3 === 0) {
+//         console.log("fizz");
+//     } else if (startingNum % 5 === 0) {
+//         console.log("buzz");
+//     } else {
+//         return "ZAP!";
+//     }
+// }
+//
+// function tryGetFizzBuzz(input) {
+//     let maybeFizzBuzzIdk = getFizzBuzz(input);
+//
+//     if (!!maybeFizzBuzzIdk) {
+//         console.log(maybeFizzBuzzIdk);
+//     }
+// }
+//
+// function runThatProgramThing() {
+//     tryGetFizzBuzz(9);
+//     tryGetFizzBuzz(10);
+//     tryGetFizzBuzz(15);
+//     tryGetFizzBuzz(19);
+// }
+//
+// runThatProgramThing();
+
+
+// Write a function named getMeaningOfLife which accepts one parameter, meaningfulNum.
+//     This function will use a while loop to compare its current number (a variable named counter) against the meaningfulNum.
+//     While the counter is not equivalent to the meaningfulNum, continue the loop.
+//     Once that condition is broken, console log a string telling the user "The meaning of life, the universe, and everything is [your meaningful number]"
+// Thinking about the above function, getMeaningOfLife, let’s ask a question: What happens if the value of meaningfulNum is a non-numeric?
+//     Write some code to account for this case. How the function handles the situation is up to you!
+//     Let’s continue with getMeaningOfLife: If the value of meaningfulNum happens to be 42, console log a separate message at the end of the function to say: "Did you bring your towel?"
+
+function getMeaningOfLife(meaningfulNum) {
+    let counter = 1;
+
+    if (isNaN(meaningfulNum)) {
+        console.log("Hint: The meaning of life is a number.")
     } else {
-        return "ZAP!";
+        while (counter !== meaningfulNum) {
+            console.log(counter);
+            counter++;
+        }
     }
+    console.log(counter);
+    console.log("The meaning of life, the universe, and everything is " + meaningfulNum + ".")
 }
 
-function tryGetFizzBuzz(input) {
-    let maybeFizzBuzzIdk = getFizzBuzz(input);
 
-    if (!!maybeFizzBuzzIdk) {
-        console.log(maybeFizzBuzzIdk);
-    }
-}
-
-function runThatProgramThing() {
-    tryGetFizzBuzz(9);
-    tryGetFizzBuzz(10);
-    tryGetFizzBuzz(15);
-    tryGetFizzBuzz(19);
-}
-
-runThatProgramThing();
+getMeaningOfLife(42);
