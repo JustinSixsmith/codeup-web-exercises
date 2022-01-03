@@ -13,7 +13,6 @@
 // }
 
 
-
 // Write the code necessary to output the first 50 prime numbers
 // Recommend starting your loop at 1 and ending your loop once you've calculated 50 prime numbers.
 // https://en.wikipedia.org/wiki/Prime_number
@@ -41,7 +40,6 @@
 // }
 
 
-
 // Create a function named roll. It should accept a string that describes how many times the dice is being rolled and the number of sides on the dice, for example:
 // 3d4 means 3 4-sided dice
 // 1d20 means 1 20-sided dice
@@ -53,53 +51,94 @@
 //         total: 16
 // }
 
-function roll(dieOrDice) {
+// function roll(dieOrDice) {
+//
+//     let splitStr = dieOrDice.split('d');
+//     let totalDice = splitStr[0];
+//     let sidesOnDice = splitStr[1];
+//
+//     let results = "";
+//     let total = 0;
+//
+//     for (diceRoll = 1; diceRoll <= totalDice; diceRoll++) {
+//         let numberRolled = Math.floor(Math.random() * sidesOnDice + 1);
+//         results += numberRolled;
+//         total += numberRolled;
+//
+//         if (diceRoll < totalDice) {
+//             results += ", ";
+//         }
+//     }
+//     console.log("rolls: [" + results + "]");
+//     console.log("total: " + total);
+// }
+//
+// roll("6d12");
 
-    let splitStr = dieOrDice.split('d');
-    let totalDice = splitStr[0];
-    let sidesOnDice = splitStr[1];
 
-    let results = "";
-    let total = 0;
+// // Write a function called add(num1, num2) which returns the sum of num1 and num2
+// function add(num1, num2) {
+//     return num1 + num2;
+// }
+//
+// console.log(add(1, 2));
+//
+//
+// // Write a function named square(numToSqr) which takes in a number (numToSqr) and returns the number multiplied by itself
+// function square(numToSqr) {
+//     return Math.pow(numToSqr, 2);
+// }
+//
+// console.log(square(2));
+//
+//
+// // Write a function called sumOfSquares(a, b).
+// //     You should find the square of a, then the square of b.
+// //     Invoke add(num1, num2) and pass the new squared values in as arguments.
+// function sumOfSquares(a, b) {
+//     return add(square(a), square(b));
+// }
+//
+// console.log(sumOfSquares(2, 4));
 
-    for (diceRoll = 1; diceRoll <= totalDice; diceRoll++) {
-        let numberRolled = Math.floor(Math.random() * sidesOnDice + 1);
-        results += numberRolled;
-        total += numberRolled;
 
-        if (diceRoll < totalDice) {
-            results += ", ";
-        }
+// Write a function named getFizzBuzz(startingNum) which performs the following actions:
+//     If startingNum is divisible by 3
+// console log "fizz"
+// Else, if startingNum is divisible by 5
+// console log "buzz"
+// If startingNum is divisible by 3 AND divisible by 5
+// return a string which says "FIZZ BUZZ"
+// Thinking about getFizzBuzz(startingNum), let's console log the return value of this function
+// What if getFizzBuzz doesn't return a value (VOID)?
+// How do you want to handle that?
+
+
+function getFizzBuzz(startingNum) {
+    if (startingNum % 3 === 0 && startingNum % 5 === 0) {
+        return "FIZZ BUZZ";
+    } else if (startingNum % 3 === 0) {
+        console.log("fizz");
+    } else if (startingNum % 5 === 0) {
+        console.log("buzz");
+    } else {
+        return "ZAP!";
     }
-    console.log("rolls: [" + results + "]");
-    console.log("total: " + total);
 }
 
-roll("6d12");
+function tryGetFizzBuzz(input) {
+    let maybeFizzBuzzIdk = getFizzBuzz(input);
 
-
-
-// Write a function called add(num1, num2) which returns the sum of num1 and num2
-function add(num1, num2) {
-    return num1 + num2;
+    if (!!maybeFizzBuzzIdk) {
+        console.log(maybeFizzBuzzIdk);
+    }
 }
 
-console.log(add(1, 2));
-
-
-// Write a function named square(numToSqr) which takes in a number (numToSqr) and returns the number multiplied by itself
-function square(numToSqr) {
-    return Math.pow(numToSqr, 2);
+function runThatProgramThing() {
+    tryGetFizzBuzz(9);
+    tryGetFizzBuzz(10);
+    tryGetFizzBuzz(15);
+    tryGetFizzBuzz(19);
 }
 
-console.log(square(2));
-
-
-// Write a function called sumOfSquares(a, b).
-//     You should find the square of a, then the square of b.
-//     Invoke add(num1, num2) and pass the new squared values in as arguments.
-function sumOfSquares(a, b) {
-    return add(square(a), square(b));
-}
-
-console.log(sumOfSquares(2, 4));
+runThatProgramThing();
