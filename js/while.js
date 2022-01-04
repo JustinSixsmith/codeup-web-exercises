@@ -8,26 +8,31 @@
 // }
 
 
-
 // Do While Loop vExercise:
 
-let allCones = Math.floor(Math.random() * 50) + 50;
-console.log("I have " + allCones + " cones to sell.")
+function sellSomeIceCream() {
 
-do {
-    let conesSold = Math.floor(Math.random() * 5) + 1;
+    let allCones = Math.floor(Math.random() * 50) + 50;
+    console.log("I have " + allCones + " cones to sell.")
+    let conesSold;
 
-    if (conesSold > allCones) {
-        console.log("I cannot sell you " + conesSold + " cones. I only have " + allCones + ".");
-        continue;
-    }
+    do {
+        conesSold = Math.floor(Math.random() * 5) + 1;
 
-    console.log(conesSold + " cone(s) sold...");
-    allCones = allCones - conesSold;
-    // console.log("I have " + allCones + " cone(s) left.");
+        if (conesSold > allCones) {
+            console.log("I cannot sell you " + conesSold + " cones. I only have " + allCones + ".");
+            continue;
+        }
 
-    if (allCones === 0) {
-        console.log("Yay! I sold all the cones!");
-        break;
-    }
-} while (allCones > 0);
+        console.log(conesSold + " cone(s) sold...");
+        allCones = allCones - conesSold;
+        // console.log("I have " + allCones + " cone(s) left.");
+
+        if (allCones === 0) {
+            console.log("Yay! I sold all the cones!");
+            break;
+        }
+    } while (allCones > 0);
+}
+
+sellSomeIceCream();
