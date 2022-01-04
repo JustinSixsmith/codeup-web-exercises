@@ -5,7 +5,7 @@ function allOtherOdds() {
     do {
         maybeOdd = prompt("Please enter an odd number between 1 and 50.");
         maybeOdd = parseInt(maybeOdd);
-        if (maybeOdd >= 1 && maybeOdd <= 50) {
+        if (maybeOdd >= 1 && maybeOdd <= 50 && maybeOdd % 2 === 1) {
             break;
         }
     } while (true);
