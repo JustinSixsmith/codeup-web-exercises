@@ -13,6 +13,7 @@
 // }
 
 
+
 // Write the code necessary to output the first 50 prime numbers
 // Recommend starting your loop at 1 and ending your loop once you've calculated 50 prime numbers.
 // https://en.wikipedia.org/wiki/Prime_number
@@ -38,6 +39,7 @@
 //         console.log(x);
 //     }
 // }
+
 
 
 // Create a function named roll. It should accept a string that describes how many times the dice is being rolled and the number of sides on the dice, for example:
@@ -76,6 +78,7 @@
 // roll("6d12");
 
 
+
 // // Write a function called add(num1, num2) which returns the sum of num1 and num2
 // function add(num1, num2) {
 //     return num1 + num2;
@@ -102,6 +105,7 @@
 // console.log(sumOfSquares(2, 4));
 
 
+
 // Write a function named getFizzBuzz(startingNum) which performs the following actions:
 //     If startingNum is divisible by 3
 // console log "fizz"
@@ -112,6 +116,7 @@
 // Thinking about getFizzBuzz(startingNum), let's console log the return value of this function
 // What if getFizzBuzz doesn't return a value (VOID)?
 // How do you want to handle that?
+
 
 
 // function getFizzBuzz(startingNum) {
@@ -144,6 +149,7 @@
 // runThatProgramThing();
 
 
+
 // Write a function named getMeaningOfLife which accepts one parameter, meaningfulNum.
 //     This function will use a while loop to compare its current number (a variable named counter) against the meaningfulNum.
 //     While the counter is not equivalent to the meaningfulNum, continue the loop.
@@ -152,21 +158,63 @@
 //     Write some code to account for this case. How the function handles the situation is up to you!
 //     Let’s continue with getMeaningOfLife: If the value of meaningfulNum happens to be 42, console log a separate message at the end of the function to say: "Did you bring your towel?"
 
-function getMeaningOfLife(meaningfulNum) {
-    let counter = 0;
+// function getMeaningOfLife(meaningfulNum) {
+//     let counter = 0;
+//
+//     meaningfulNum = parseInt(meaningfulNum);
+//
+//     if (meaningfulNum) {
+//         while (meaningfulNum !== counter) {
+//             counter++;
+//         }
+//         console.log("The meaning of life, the universe, and everything is " + counter + ".");
+//
+//         if (counter === 42) {
+//             console.log("Did you bring your towel?");
+//         }
+//     }
+// }
+//
+// getMeaningOfLife(34);
 
-    meaningfulNum = parseInt(meaningfulNum);
 
-    if (meaningfulNum) {
-        while (meaningfulNum !== counter) {
-            counter++;
-        }
-        console.log("The meaning of life, the universe, and everything is " + counter + ".");
 
-        if (counter === 42) {
-            console.log("Did you bring your towel?");
+// TODO: MINI EXERCISE
+//      Write a function which uses a for-loop and
+//      -> accepts the number of times to iterate as a parameter
+//      -> only logs *if the iteration number is odd*
+
+function showOdd(topNumber) {
+
+    for (let i = 1; i <= topNumber; i++) {
+        if (i % 2 === 1) {
+            console.log(i);
         }
     }
 }
 
-getMeaningOfLife(34);
+showOdd(6);
+
+
+
+// TODO: MINI EXERCISE
+//      Write a function which uses a for-loop and
+//      -> accepts the number of times to iterate as a parameter
+//      -> logs "This is an even iteration" on the evens
+//      -> logs "This is an odd iteration" on the odds
+
+function showEvenAndOdd(topNumber) {
+
+    for (let i = 1; i <= topNumber; i++) {
+        if (i % 2 === 1) {
+            console.log(i + ": This an odd iteration.");
+        } else {
+            console.log(i + ": This is an even iteration.")
+        }
+    }
+}
+
+showEvenAndOdd(6);
+
+
+
