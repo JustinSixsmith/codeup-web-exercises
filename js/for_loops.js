@@ -9,13 +9,13 @@ function showMultiplicationTable(numberToMultiply) {
 showMultiplicationTable(6);
 
 
-
 // Exercise #3: Use a for loop and the code from the previous lessons to generate 10 random numbers between 20 and 200 and output to the console whether each number is odd or even.
 
 for (let x = 1; x <= 10; x++) {
     function randomIntFromInterval(min, max) { // min and max included
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
+
     let randomNumber = randomIntFromInterval(20, 200);
 
     if (randomNumber % 2 === 0) {
@@ -26,13 +26,21 @@ for (let x = 1; x <= 10; x++) {
 }
 
 
-
 // Exercise #4:
+
 let numberPyramid = "";
 
-for (let y = 1; y < 10; y++) {
+for (let y = 1; y <= 10; y++) {
 
+    if (numberPyramid !== "") {
+        console.log(numberPyramid);
+        numberPyramid = "";
+    }
 
+    for (x = 1; x <= y; x++) {
+        numberPyramid += y;
+    }
+}
 
 //     if (y === 1) {
 //         console.log("" + y);
@@ -54,7 +62,6 @@ for (let y = 1; y < 10; y++) {
 //         console.log("" + y + y + y + y + y + y + y + y + y);
 //     }
 // }
-
 
 
 // Exercise #5:
