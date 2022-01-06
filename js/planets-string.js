@@ -29,7 +29,7 @@
     let newPlanetsString = planetsArray.join("<br>");
     console.log(newPlanetsString);
 
-    let ulPlanetsString = "<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>";
-    console.log(ulPlanetsString);
+    let PlanetsStringList = "<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>";
+    console.log(PlanetsStringList);
 
 })();
