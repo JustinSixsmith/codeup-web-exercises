@@ -43,13 +43,30 @@ function printMovie(movie) {
     console.log("Title: " + movie.title);
     console.log("\tYear: " + movie.year);
     console.log("\tRating; " + movie.rating);
-    console.log("\tDirector " + movie.director);
+    console.log("\tDirector: ");
+    printDir(movie);
     console.log("\tIMDb Rating: " + movie.IMDb);
     console.log("\tAcademy Award Winner: " + movie.oscar);
-    console.log("\tGenres: " + movie.genres);
+    console.log("\tGenres: ");
+    printGenre(movie);
 }
 
-printMovie(movies[1]);
+
+function printDir(movie) {
+    console.log("\t\tFirst name: " + movie.director.firstName);
+    console.log("\t\tLast name: " + movie.director.lastName);
+}
+
+function printGenre(movie) {
+    console.log("\t\tMain genre: " + movie.genres[0]);
+    console.log("\t\tSub genre: " + movie.genres[1]);
+}
+
+
+
+
+
+// printMovie(movies[1]);
 
 
 function printMovies(movies) {
@@ -69,3 +86,10 @@ printMovies(movies);
 // and change your printMovie function
 // please cupdate as you complete this ungraded practice exercise (edited)
 
+
+
+// Add a rate(rating) function to each of your movie objects.
+//     The function takes an int parameter called rating
+// Modify rate(rating) to set a myRating property on that object
+// modify printMovie to display myRating for each movie
+// 15 minutes
