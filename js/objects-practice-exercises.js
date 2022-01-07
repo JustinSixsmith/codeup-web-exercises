@@ -47,7 +47,8 @@ function printMovie(movie) {
     printDir(movie);
     console.log("\tIMDb Rating: " + movie.IMDb);
     console.log("\tAcademy Award Winner: " + movie.oscar);
-    console.log("\tGenres: ");
+    console.log("\tGenres: " + movie.genres);
+    console.log("\tRating " + movie.rating);
     printGenre(movie);
 }
 
@@ -93,3 +94,11 @@ printMovies(movies);
 // Modify rate(rating) to set a myRating property on that object
 // modify printMovie to display myRating for each movie
 // 15 minutes
+
+
+function rate(rating) {
+    movies[movies.length] = {
+        rating: rating
+    };
+}
+rate(9.5);
