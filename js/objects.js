@@ -80,11 +80,42 @@
      */
 
     let books = [
-        {title: "Mosquito Man", author: {firstName: "Jeremy", lastName: "Bates"}},
-        {title: "The Reunion", author: {firstName: "Kiersten", lastName: "Modglin"}},
-        {title: "Half in Shadow", author: {firstName: "Gemma", lastName: "Liviero"}},
-        {title: "Carnegie's Maid", author: {firstName: "Marie", lastName: "Benedict"}},
-        {title: "The London House", author: {firstName: "Katherine", lastName: "Reay"}}
+        {
+            title: "Mosquito Man",
+            author: {
+                firstName: "Jeremy",
+                lastName: "Bates"
+            }
+        },
+
+        {
+            title: "The Reunion",
+            author: {
+                firstName: "Kiersten",
+                lastName: "Modglin"
+            }
+        },
+        {
+            title: "Half in Shadow",
+            author: {
+                firstName: "Gemma",
+                lastName: "Liviero"
+            }
+        },
+        {
+            title: "Carnegie's Maid",
+            author: {
+                firstName: "Marie",
+                lastName: "Benedict"
+            }
+        },
+        {
+            title: "The London House",
+            author: {
+                firstName: "Katherine",
+                lastName: "Reay"
+            }
+        }
     ]
 
     function listBooks() {
@@ -92,8 +123,8 @@
         console.log(books[1].author.firstName);
         console.log(books[3].author.lastName);
     }
-    listBooks();
 
+    listBooks();
 
 
     /**
@@ -121,11 +152,11 @@
      *      ...
      */
 
-books.forEach(function (book, index) {
-    console.log("\nBook # " + (index + 1));
-    console.log("Title: " + book.title);
-    console.log("Author: " + book.author.firstName + " " + book.author.lastName)
-})
+    books.forEach(function (book, index) {
+        console.log("\nBook # " + (index + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName)
+    })
 
 
     /**
