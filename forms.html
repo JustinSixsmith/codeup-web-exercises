@@ -5,54 +5,70 @@
     <title>Register With Us</title>
 </head>
 <body>
+
+<br>
+
+<form method="POST" action="https://www.elformo.com/forms/e0e06944-42dd-42e0-9957-ebe0fc70ad9f/">
+    <label>Email:
+        <input type="text" name="email" placeholder="Email">
+    </label><br>
+
     <br>
-    <form method="POST" action="https://request-inspector.glitch.me/">
-        <label>Name:
-            <input type="text" name="email" placeholder="Enter your email address">
-        </label>
-        <label>Password:
-            <input type="password" name="password" placeholder="Password">
-        </label><br>
-        <br>
+
+    <label>Password:
+        <input type="password" name="password" placeholder="Password">
+    </label><br>
+    <br>
+
+    <br>
+    <br>
+
+    <label>Bio:
+        <textarea name="bio" placeholder="A short description of yourself" cols="30" rows="10""></textarea>
+    </label>
+
+    <br>
+
+    <section>
 
         <br>
-        <label>Bio:
-            <textarea name="bio" placeholder="A short description of yourself" style="width: 500px;"></textarea>
-        </label><br>
-        <br>
 
-        <br>
         <h4>How did you hear about us?</h4>
         <label for="billboard">
-            <input type="checkbox" id="billboard" name="quiz_question_1" value="a"> Billboard
+            <input type="checkbox" id="billboard" name="how_did_you_hear" value="billboard"> Billboard
         </label><br>
         <label for="radio">
-            <input type="checkbox" id="radio" name="quiz_question_1" value="b"> Radio advertisement
+            <input type="checkbox" id="radio" name="how_did_you_hear" value="radio"> Radio advertisement
         </label><br>
         <label for="internet">
-            <input type="checkbox" id="internet" name="quiz_question_1" value="c"> Internet advertisement
+            <input type="checkbox" id="internet" name="how_did_you_hear" value="internet"> Internet advertisement
         </label><br>
         <label for="other">
-            <input type="checkbox" id="other" name="quiz_question_1" value="d"> Other
+            <input type="checkbox" id="other" name="how_did_you_hear" value="other"> Other
         </label><br>
-        <br>
 
         <br>
-        <label>What web browser are you currently using?
-            <select name="web browser">
-                <option value="chrome">Google Chrome</option>
-                <option value="safari">Safari</option>
-                <option value="explorer">Microsoft Explorer</option>
-                <option value="edge">Microsoft Edge</option>
-                <option value="firefox">Firefox</option>
-                <option value="Opera">Opera</option>
-                <option value="other">Other</option>
-            </select>
-        </label>
-        <br>
-        <br>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
+
+    </section>
+
+    <br>
+
+    <label>Which web browser are you currently using?
+        <select name="web browser">
+            <option value="chrome">Google Chrome</option>
+            <option value="safari">Safari</option>
+            <option value="explorer">Microsoft Explorer</option>
+            <option value="edge">Microsoft Edge</option>
+            <option value="firefox">Firefox</option>
+            <option value="Opera">Opera</option>
+            <option value="other">Other</option>
+        </select>
+    </label>
+
+    <br>
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
