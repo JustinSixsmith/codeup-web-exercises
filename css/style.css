@@ -1,3 +1,34 @@
+* {
+    background-color: #e9fff9;
+    font-family: "Academy Engraved LET";
+
+}
+
+body {
+    background-image: url(/img/wooden-plank.jpeg);
+    background-repeat: repeat;
+}
+
 .fancy-header {
-    color:purple
+    color: #1d3354;
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+}
+
+.sub-headers {
+    color: #D64045;
+    text-decoration: underline;
+}
+
+#core, #vision {
+    list-style: georgian inside url('/media/examples/rocket.svg');
+}
+
+table, th, td {
+    border: 1px solid black;
+    width: 35%;
+    padding: 10px;
 }
