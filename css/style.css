@@ -1,16 +1,30 @@
 * {
-    background-color: #e9fff9;
+    color: #1d3354;
     font-family: "Academy Engraved LET";
+}
 
+
+header {
+    /*Instructed by DocRob to use localhost url as a workaround since IntelliJ wouldn't display the image otherwise.*/
+    background-image: url("http://localhost:63342/codeup-web-exercises/img/wooden-plank.jpeg");
+    /*background-image: url("/img/wooden-plank.jpeg");*/
+    background-size: 500px 150px;
+    background-blend-mode: difference;
+}
+
+#about-us {
+    background-image: url("http://localhost:63342/codeup-web-exercises/img/red-wooden-house.jpeg");
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
 }
 
 body {
-    background-image: url(/img/wooden-plank.jpeg);
-    background-repeat: repeat;
+    background-color: #9ed8db;
 }
 
 .fancy-header {
-    color: #1d3354;
+    color: #e9fff9;
     text-decoration: underline;
 }
 
@@ -24,11 +38,32 @@ h1 {
 }
 
 #core, #vision {
-    list-style: georgian inside url('/media/examples/rocket.svg');
+    list-style: square;
 }
 
 table, th, td {
+    color: #e9fff9;
+    font-size: medium;
+    background-image: url("http://localhost:63342/codeup-web-exercises/img/wooden-plank.jpeg");
+    /*background-image: url("/img/wooden-plank.jpeg");*/
+    background-size: 500px 150px;
     border: 1px solid black;
     width: 35%;
     padding: 10px;
+}
+
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+a:active {
+    color: green;
 }
