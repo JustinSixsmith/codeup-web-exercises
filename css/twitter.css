@@ -115,7 +115,7 @@ a {
     overflow: auto;
 }
 .media-image {
-    width: 50px;
+    max-width: 50px;
     float: left;
     margin-top: 1.33em;
 }
