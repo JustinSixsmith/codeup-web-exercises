@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: silver;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: .5em;
+    font-family: "Work Sans";
+    font-weight: bold;
+    display: flex;
+}
+
+ul:nth-child(4) {
+    display: flex;
+    margin: 0 auto;
+    font-family: Montserrat;
+}
