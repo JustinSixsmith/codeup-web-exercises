@@ -1,0 +1,19 @@
+.name {
+    font-weight: bold;
+    text-align: center;
+    margin: 1em 0;
+}
+.sub-title {
+    font-weight: bold;
+    text-align: center;
+}
+.contact-info {
+    text-align: center;
+}
+hr {
+    margin; 40px;
+border: 2px solid forestgreen;
+}
+.details > div {
+padding 80px;
+}
