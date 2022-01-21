@@ -1,0 +1,51 @@
+body {
+    margin: 16px;
+}
+
+.font-awesome {
+    color: gray;
+}
+
+.jumbotron {
+    margin: 2em 0;
+    padding: 0;
+    background-image: url("/img/pizza.png");
+    background-repeat: no-repeat;
+    height: 208px;
+    display: flex;
+    align-items: center;
+}
+
+.display-4 {
+    color: #666666;
+    flex-basis: 100%;
+    text-align: center;
+    background-color: rgba(236, 236, 236, .7);
+}
+
+.card-header {
+    color: white;
+    background-color: #007BFF;
+}
+
+.tossed {
+    margin-bottom: 16px;
+}
+
+.list-group {
+    /*margin-bottom: 20px;*/
+}
+
+.card-body li:nth-of-type(1) {
+    background-color: whitesmoke;
+}
+
+.myLi {
+    padding-left: 40px !important;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}

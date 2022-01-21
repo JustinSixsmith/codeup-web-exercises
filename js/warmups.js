@@ -70,15 +70,40 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // removeAll(bugs, "mosquito") should return ["ant", "scorpion", "ant", "ant", "typo", "reference error", "type error"]
 // removeAll(bugs, "roach") should return the original array b/c “roach” has no occurrances.
 
-function removeAll(myArray, valueToRemove) {
-    let cleanArray = [];
+// function removeAll(myArray, valueToRemove) {
+//     let cleanArray = [];
+//
+//     for (let i = 0; i < myArray.length; i++) {
+//         if (myArray[i] !== valueToRemove) {
+//             cleanArray.push(myArray[i]);
+//         }
+//     }
+//     return cleanArray;
+// }
+//
+// console.log(removeAll(bugs, "ant"));
 
-    for (let i = 0; i < myArray.length; i++) {
-        if (myArray[i] !== valueToRemove) {
-            cleanArray.push(myArray[i]);
-        }
+
+var myCats = [
+    {
+        catName: "Fifi",
+        age: 5
+    },
+    {
+        catName: "Fluffy",
+        age: 3
+    },
+    {
+        catName: "Abby",
+        age: 7
     }
-    return cleanArray;
+];
+
+
+function getNthCat(cats, numCat) {
+    return cats[numCat];
 }
 
-console.log(removeAll(bugs, "ant"));
+// print out the cat at index 1
+console.log(getNthCat(myCats, 1));
+
