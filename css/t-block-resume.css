@@ -1,19 +1,49 @@
 .name {
     font-weight: bold;
     text-align: center;
+    letter-spacing: .2em;
     margin: 1em 0;
 }
+
+.title {
+    padding: 0;
+}
+
 .sub-title {
     font-weight: bold;
     text-align: center;
 }
+
+.description {
+    margin-bottom: 3em;
+}
+
 .contact-info {
     text-align: center;
 }
+
+.contact-info > div {
+    padding: 0;
+}
+
 hr {
     margin; 40px;
 border: 2px solid forestgreen;
 }
-.details > div {
-padding 80px;
+
+main {
+    margin-top: 2em;
+}
+
+.details h4 {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+.left-details > div {
+    padding: 1em 1em 0 0;
+}
+
+.right-details > div {
+    padding: 1em 1em 0 0;
 }
