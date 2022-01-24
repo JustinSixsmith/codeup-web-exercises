@@ -108,7 +108,6 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // console.log(getNthCat(myCats, 1));
 
 
-
 // Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
 //     Note: a and b are not ordered!
 //     Examples (a, b) --> output (explanation)
@@ -122,3 +121,19 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 //     console.log(getSum(0, -1)); //Expected -1
 // console.log(getSum(2, 2)); //Expected 2
 // console.log(getSum(1, 5)); //Expected 15
+
+
+// Write a function called reverseString that takes in a string and returns a string that has the characters of the original string in reverse order.
+//     example: reverseString('hello') - returns 'olleh'
+
+
+function reverseString(aString) {
+    let newString = "";
+    for (let i = (aString.length -1); i >= 0; i--) {
+        newString += aString[i];
+    }
+    return newString;
+}
+
+console.log(reverseString(".noitcnuf a htiw daer ot reisae tol a eb dluow sihT"));
+
