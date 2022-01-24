@@ -84,26 +84,41 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // console.log(removeAll(bugs, "ant"));
 
 
-var myCats = [
-    {
-        catName: "Fifi",
-        age: 5
-    },
-    {
-        catName: "Fluffy",
-        age: 3
-    },
-    {
-        catName: "Abby",
-        age: 7
-    }
-];
+// var myCats = [
+//     {
+//         catName: "Fifi",
+//         age: 5
+//     },
+//     {
+//         catName: "Fluffy",
+//         age: 3
+//     },
+//     {
+//         catName: "Abby",
+//         age: 7
+//     }
+// ];
+//
+//
+// function getNthCat(cats, numCat) {
+//     return cats[numCat];
+// }
+//
+// // print out the cat at index 1
+// console.log(getNthCat(myCats, 1));
 
 
-function getNthCat(cats, numCat) {
-    return cats[numCat];
-}
 
-// print out the cat at index 1
-console.log(getNthCat(myCats, 1));
-
+// Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+//     Note: a and b are not ordered!
+//     Examples (a, b) --> output (explanation)
+// (1, 0) --> 1 (1 + 0 = 1)
+// (1, 2) --> 3 (1 + 2 = 3)
+// (0, 1) --> 1 (0 + 1 = 1)
+// (1, 1) --> 1 (1 since both are same)
+// (-1, 0) --> -1 (-1 + 0 = -1)
+// (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+// Here are some test cases:
+//     console.log(getSum(0, -1)); //Expected -1
+// console.log(getSum(2, 2)); //Expected 2
+// console.log(getSum(1, 5)); //Expected 15
