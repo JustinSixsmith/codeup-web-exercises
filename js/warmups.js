@@ -127,13 +127,17 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 //     example: reverseString('hello') - returns 'olleh'
 
 
-function reverseString(aString) {
-    let newString = "";
-    for (let i = (aString.length -1); i >= 0; i--) {
-        newString += aString[i];
-    }
-    return newString;
+
+// Write a function called findAverage that takes in an array of integers representing grades and returns the average.
+//     Example input: [95, 74, 86, 100]
+// Example output: 88.75
+
+function findAverage(grades) {
+    let sum = 0;
+    grades.forEach(function (grade) {
+        sum += grade;
+    });
+    return sum / grades.length;
 }
 
-console.log(reverseString(".noitcnuf a htiw daer ot reisae tol a eb dluow sihT"));
-
+console.log(findAverage([95, 74, 86, 100]));
