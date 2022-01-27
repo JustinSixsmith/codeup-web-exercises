@@ -25,47 +25,98 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="btn1">Change Header Text</button>
+<br>
+<br>
+<button id="btn2">Change color of Sub-Header</button>
+<br>
+<br>
+<button id="btn3">Change color of list items</button>
+<br>
+<br>
+<button id="btn4">Change paragraph</button>
+
 <script>
-    (function () {
-        "use strict";
-        // TODO: Uncomment next line and get the main header element by id
-        var mainHeader = document.getElementById("main-header");
+    "use strict";
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+    // Button One
+    var mainHeader = document.getElementById("main-header");
+    var changeHeader = function () {
+        mainHeader.innerHTML = "JavaScript is Cool"
+    }
+    document.querySelector("#btn1").addEventListener("click", changeHeader);
 
-        // TODO: Uncomment the next line and get the sub header element by id
-        var subHeader = document.getElementById("sub-header");
 
-        // TODO: Set the text color of subHeader to blue
+    // Button Two
+    var subHeader = document.getElementById("sub-header");
+    var toBlue = function () {
         subHeader.style.color = "blue";
+    }
+    document.querySelector("#btn2").addEventListener("click", toBlue);
 
-        // TODO: Uncomment the next line and get all list items
-        var listItems = document.querySelectorAll("li");
 
-        // TODO: Set text color on every other list item to grey
-        for (let i = 0; i < listItems.length; i += 2) {
-            listItems[i].style.color = "gray";
-        }
-
-        // TODO: Set text color of li with dbid = 1 to blue
+    // Button Three
+    var listItems = document.querySelectorAll("li");
+    var btnColor = function () {
+        var x = 1;
         for (let i = 0; i < listItems.length; i++) {
+            if (i % 2 === 0)
+                listItems[i].style.color = "gray";
+
             if (listItems[i].getAttribute("data-dbid") === "1") {
                 listItems[i].style.color = "blue";
             }
         }
+    }
+    document.querySelector("#btn3").addEventListener("click", btnColor);
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.querySelectorAll(".sub-paragraph");
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    // Button Four
+    var subParagraphs = document.querySelectorAll(".sub-paragraph");
+    var newPar = function () {
         subParagraphs[0].innerHTML = "<em>Mission Accomplished!</em>";
+    }
+    document.querySelector("#btn4").addEventListener("click", newPar);
 
-        // subParagraphs.forEach(function(paragraph) {
-        //     paragraph.innerHTML = "<em>Mission Accomplished!</em>";
-        // })
+    // (function () {
+    //     "use strict";
+    //     // TODO: Uncomment next line and get the main header element by id
+    //
+    //
+    //     // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+    //     mainHeader.innerHTML = "JavaScript is Cool";
+    //
+    //     // TODO: Uncomment the next line and get the sub header element by id
+    //     var subHeader = document.getElementById("sub-header");
+    //
+    //     // TODO: Set the text color of subHeader to blue
+    //     subHeader.style.color = "blue";
+    //
+    //     // TODO: Uncomment the next line and get all list items
+    //     var listItems = document.querySelectorAll("li");
+    //
+    //     // TODO: Set text color on every other list item to grey
+    //     for (let i = 0; i < listItems.length; i += 2) {
+    //         listItems[i].style.color = "gray";
+    //     }
+    //
+    //     // TODO: Set text color of li with dbid = 1 to blue
+    //     for (let i = 0; i < listItems.length; i++) {
+    //         if (listItems[i].getAttribute("data-dbid") === "1") {
+    //             listItems[i].style.color = "blue";
+    //         }
+    //     }
+    //
+    //     // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+    //     var subParagraphs = document.querySelectorAll(".sub-paragraph");
+    //
+    //     // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    //     subParagraphs[0].innerHTML = "<em>Mission Accomplished!</em>";
 
-    })();
+    // subParagraphs.forEach(function(paragraph) {
+    //     paragraph.innerHTML = "<em>Mission Accomplished!</em>";
+    // })
+    // })();
 </script>
 </body>
 </html>
