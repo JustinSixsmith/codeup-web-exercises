@@ -132,12 +132,28 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 //     Example input: [95, 74, 86, 100]
 // Example output: 88.75
 
-function findAverage(grades) {
-    let sum = 0;
-    grades.forEach(function (grade) {
-        sum += grade;
-    });
-    return sum / grades.length;
+// function findAverage(grades) {
+//     let sum = 0;
+//     grades.forEach(function (grade) {
+//         sum += grade;
+//     });
+//     return sum / grades.length;
+// }
+//
+// console.log(findAverage([95, 74, 86, 100]));
+
+
+
+// morning JS warmup:
+//     write a function called sumOfSquares(a, b)
+// takes 2 parameters called a and b
+// returns the sum of the squares of a and b
+// i.e., (a to the power of 2) + (b to the power of 2)
+// e.g., console.log(sumOfSquares(2, 3));
+// will return 13 (edited)
+
+function sumOfSquares(a, b) {
+    return Math.pow(a, 2) + Math.pow(b, 2);
 }
 
-console.log(findAverage([95, 74, 86, 100]));
+console.log(sumOfSquares(2, 4));
