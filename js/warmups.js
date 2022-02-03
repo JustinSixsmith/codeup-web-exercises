@@ -127,7 +127,6 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 //     example: reverseString('hello') - returns 'olleh'
 
 
-
 // Write a function called findAverage that takes in an array of integers representing grades and returns the average.
 //     Example input: [95, 74, 86, 100]
 // Example output: 88.75
@@ -143,7 +142,6 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // console.log(findAverage([95, 74, 86, 100]));
 
 
-
 // morning JS warmup:
 //     write a function called sumOfSquares(a, b)
 // takes 2 parameters called a and b
@@ -152,8 +150,51 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // e.g., console.log(sumOfSquares(2, 3));
 // will return 13 (edited)
 
-function sumOfSquares(a, b) {
-    return Math.pow(a, 2) + Math.pow(b, 2);
-}
+// function sumOfSquares(a, b) {
+//     return Math.pow(a, 2) + Math.pow(b, 2);
+// }
+//
+// console.log(sumOfSquares(2, 4));
 
-console.log(sumOfSquares(2, 4));
+
+// Write a function called whichStringIsLonger() that takes two parameters and returns one of 4 values:
+//     returns "first" if the first string parameter is longer
+// returns "second" if the second parameter is longer
+// returns "neither" if they are the same length
+// returns false if either or both of the parameters are not strings
+
+// function whichStringIsLonger(a, b) {
+//     if (typeof a !== "string" || typeof b !== "string") {
+//         return false;
+//     }
+//     if (a.length > b.length) {
+//         return "first";
+//     }
+//     if (b.length > a.length) {
+//         return "second";
+//     }
+//     return "neither";
+// }
+
+// console.log(whichStringIsLonger("bobby", "lou")); // returns first
+// console.log(whichStringIsLonger("bob", "louise")); // returns second
+// console.log(whichStringIsLonger("bob", "lou")); // returns neither
+// console.log(whichStringIsLonger("bobby", 2)); // returns false
+// console.log(whichStringIsLonger(1, "lou")); // returns false
+
+
+
+// function sumOfThreeNumbers(num1, num2, num3){
+//     if (typeof num1 !== "number" || typeof num2 !== "number" || typeof num3 !== "number") {
+//         return false;
+//     }
+//     return num1 + num2 + num3;
+// }
+//
+// console.log(sumOfThreeNumbers(1, 2, 3));
+// console.log(sumOfThreeNumbers(-10, 2, 3));
+// console.log(sumOfThreeNumbers(1, 2, "Bob"));
+// console.log(sumOfThreeNumbers(1, 2, true));
+
+
+
