@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<div>
+<!--    <video id="myVideo" width="320" height="176">-->
+<!--        <source src="/img/video_preview_h264.mp4" type="video/mp4">-->
+<!--        <source src="/img/video_preview_h264.mp4" type="video/ogg">-->
+<!--        Your browser does not support HTML5 video.-->
+<!--    </video>-->
+</div>
+<h1 style="font-family: Wingdings">Enter the Konami Code!</h1>
+
+<script src="/js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+
+$('h1').hover(
+    function() {
+        $(this).css('font-family', 'SanSerif');
+    },
+    function() {
+        $(this).css('font-family', 'Wingdings');
+    }
+);
+
+    function bigEvent() {
+        $('h1').off().html("You win the prize, noob!").css('text-align', 'center')
+        .css('margin-top', '300px')
+        .css('font-family', 'Comic Sans MS');
+
+        function noMargin() {
+            $('h1').css('margin-top', '20px');
+        }
+        setTimeout(noMargin, 7000);
+
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        $('body').css('background-color', '#' + randomColor);
+
+        function changeBackground() {
+            let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            $('body').css('background-color', '#' + randomColor);
+        }
+        setInterval(changeBackground, 600);
+
+        function changeTextColor() {
+            let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            $('body').css('color', '#' + randomColor);
+        }
+        setInterval(changeTextColor, 200);
+
+        function changeTextSize() {
+            let randomTextSize = Math.floor(Math.random() * 130);
+            $('h1').css('font-size', randomTextSize + 'px');
+        }
+        setInterval(changeTextSize, 400);
+
+        function playGif() {
+            $('div').html('<IMG SRC="img/goat-screaming.gif" width="800">')
+                .css('display', 'flex')
+                .css('justify-content', 'center');
+        }
+        setTimeout(playGif, 7000);
+    }
+
+
+    let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    let konamiPosition = 0;
+
+    $(document).keyup(function (event) {
+        let key = event.keyCode;
+        if (key === konamiCode[konamiPosition]) {
+            konamiPosition++;
+        } else {
+            konamiPosition = 0;
+        }
+        if (konamiPosition === konamiCode.length) {
+            bigEvent();
+        }
+    });
+</script>
+</body>
+</html>
