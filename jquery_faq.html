@@ -8,7 +8,7 @@
             font-weight: bold;
         }
 
-        .hidden {
+        .invisible {
             visibility: hidden;
         }
     </style>
@@ -21,19 +21,19 @@
 <br>
 <dl>
     <dt>Who is the director of the National Park Service?</dt>
-    <dd>Charles F. "Chuck" Sams III is the Director of the National Park Service.<br>
+    <dd class="invisible">Charles F. "Chuck" Sams III is the Director of the National Park Service.<br>
         Learn more about past directors of the National Park Service.
     </dd>
     <br>
     <br>
     <dt>What government agency oversees the National Park Service?</dt>
-    <dd>The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is
+    <dd class="invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is
         the department's Assistant Secretary for Fish, Wildlife and Parks.
     </dd>
     <br>
     <br>
     <dt>How many employees are in the National Park Service?</dt>
-    <dd>
+    <dd class="invisible">
         <ul>
             <li>Permanent, temporary, and seasonal employees: Approximately 20,000</li>
             <br>
@@ -42,14 +42,14 @@
     </dd>
     <br>
     <dt>How old is the National Park System?</dt>
-    <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.
+    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.
         Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as
         the nation's first national park. View the National Park System timeline.
     </dd>
     <br>
     <br>
     <dt>What is the origin of the National Park Service arrowhead?</dt>
-    <dd>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on
+    <dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on
         July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park
         System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water
         representing scenic and recreational values, and the arrowhead itself representing historical and archeological
@@ -58,7 +58,7 @@
     <br>
     <br>
     <dt>How many areas are in the National Park System?</dt>
-    <dd>The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia,
+    <dd class="invisible">The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia,
         American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments,
         battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic
         rivers and trails, and the White House. Learn more about national park designations. See the complete list of
@@ -67,7 +67,7 @@
     <br>
     <br>
     <dt>What is the largest national park site? Smallest?</dt>
-    <dd>
+    <dd class="invisible">
         <ul>
             <li>Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</li>
             <br>
@@ -76,17 +76,17 @@
     </dd>
     <br>
     <dt>How many people visit the national parks?</dt>
-    <dd>Total recreation visitors to the national parks in 2019: 327,516,619.</dd>
+    <dd class="invisible">Total recreation visitors to the national parks in 2019: 327,516,619.</dd>
     <br>
     <br>
     <dt>What is the most-visited national park?</dt>
-    <dd>
+    <dd class="invisible">
         <a href="https://www.nps.gov/aboutus/faqs.htm#:~:text=View%20a%20list%20of%20the%20most%2Dvisited%20sites%20in%20the%20National%20Park%20Service"
            target="_blank">View a list of the most-visited sites in the National Park Service.</a></dd>
     <br>
     <br>
     <dt>What is the National Park Service budget?</dt>
-    <dd>
+    <dd class="invisible">
         <ul>
             <li>Fiscal Year (FY) 2014 Enacted: $2.98 billion</li>
             <br>
@@ -106,7 +106,7 @@
 
         $('#show-answers').click(function(event) {
             event.preventDefault();
-            $('dd').toggleClass('hidden');
+            $('dd').toggleClass('invisible');
         });
 
         $('dt').click(function() {
