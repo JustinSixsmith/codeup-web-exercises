@@ -26,11 +26,29 @@
 
         // $(".codeup").css("border", "1px solid red");
 
-    $("li").css("font-size", "20px");
+        // $("li").css("font-size", "20px");
+        //
+        // $("h1, p, li").css("background-color", "yellow");
+        //
+        // alert($("h1").html());
 
-    $("h1, p, li").css("background-color", "yellow");
 
-    alert($("h1").html());
+        let newBackdrop = (function () {
+            if ($(this).css('background-color') !== 'rgba(0, 0, 0, 0)') {
+                $(this).css('background-color', 'red');
+            } else {
+                $(this).css('background-color', 'blue');
+            }
+        });
+        $('h1').click(newBackdrop);
+
+        let sizeUp = (function () {
+            $('p').css('font-size', '18px');
+        });
+        $('p').dblclick(sizeUp);
+
+
+
     });
 </script>
 
