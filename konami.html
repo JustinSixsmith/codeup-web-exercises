@@ -5,11 +5,11 @@
 </head>
 <body>
 <div>
-<!--    <video id="myVideo" width="320" height="176">-->
-<!--        <source src="/img/video_preview_h264.mp4" type="video/mp4">-->
-<!--        <source src="/img/video_preview_h264.mp4" type="video/ogg">-->
-<!--        Your browser does not support HTML5 video.-->
-<!--    </video>-->
+    <!--    <video id="myVideo" width="320" height="176">-->
+    <!--        <source src="/img/video_preview_h264.mp4" type="video/mp4">-->
+    <!--        <source src="/img/video_preview_h264.mp4" type="video/ogg">-->
+    <!--        Your browser does not support HTML5 video.-->
+    <!--    </video>-->
 </div>
 <h1 style="font-family: Wingdings">Enter the Konami Code!</h1>
 
@@ -18,23 +18,26 @@
     "use strict";
 
 
-$('h1').hover(
-    function() {
-        $(this).css('font-family', 'SanSerif');
-    },
-    function() {
-        $(this).css('font-family', 'Wingdings');
-    }
-);
+    $('h1').hover(
+        function () {
+            $(this).css('font-family', 'SanSerif');
+        },
+        function () {
+            $(this).css('font-family', 'Wingdings');
+        }
+    );
 
     function bigEvent() {
-        $('h1').off().html("You win the prize, noob!").css('text-align', 'center')
-        .css('margin-top', '300px')
-        .css('font-family', 'Comic Sans MS');
+        $('h1').off()
+            .html("You win the prize, noob!")
+            .css('text-align', 'center')
+            .css('margin-top', '300px')
+            .css('font-family', 'Comic Sans MS');
 
         function noMargin() {
             $('h1').css('margin-top', '20px');
         }
+
         setTimeout(noMargin, 7000);
 
         let randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -44,18 +47,21 @@ $('h1').hover(
             let randomColor = Math.floor(Math.random() * 16777215).toString(16);
             $('body').css('background-color', '#' + randomColor);
         }
+
         setInterval(changeBackground, 600);
 
         function changeTextColor() {
             let randomColor = Math.floor(Math.random() * 16777215).toString(16);
             $('body').css('color', '#' + randomColor);
         }
+
         setInterval(changeTextColor, 200);
 
         function changeTextSize() {
             let randomTextSize = Math.floor(Math.random() * 130);
             $('h1').css('font-size', randomTextSize + 'px');
         }
+
         setInterval(changeTextSize, 400);
 
         function playGif() {
@@ -63,6 +69,7 @@ $('h1').hover(
                 .css('display', 'flex')
                 .css('justify-content', 'center');
         }
+
         setTimeout(playGif, 7000);
     }
 
