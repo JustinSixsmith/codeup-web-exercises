@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery FAQ</title>
+    <style>
+        h1 {
+            font-weight: bold;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<h1>10 National Park FAQs:</h1>
+
+<a href="" id="show-answers">Show answers</a>
+<br>
+<br>
+<dl>
+    <dt>Who is the director of the National Park Service?</dt>
+    <dd>Charles F. "Chuck" Sams III is the Director of the National Park Service.<br>
+        Learn more about past directors of the National Park Service.
+    </dd>
+    <br>
+    <br>
+    <dt>What government agency oversees the National Park Service?</dt>
+    <dd>The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is
+        the department's Assistant Secretary for Fish, Wildlife and Parks.
+    </dd>
+    <br>
+    <br>
+    <dt>How many employees are in the National Park Service?</dt>
+    <dd>
+        <ul>
+            <li>Permanent, temporary, and seasonal employees: Approximately 20,000</li>
+            <br>
+            <li>Volunteers: More than 279,000 in 2019</li>
+        </ul>
+    </dd>
+    <br>
+    <dt>How old is the National Park System?</dt>
+    <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.
+        Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as
+        the nation's first national park. View the National Park System timeline.
+    </dd>
+    <br>
+    <br>
+    <dt>What is the origin of the National Park Service arrowhead?</dt>
+    <dd>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on
+        July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park
+        System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water
+        representing scenic and recreational values, and the arrowhead itself representing historical and archeological
+        values. Read more about the history of the arrowhead and other elements of NPS visual design.
+    </dd>
+    <br>
+    <br>
+    <dt>How many areas are in the National Park System?</dt>
+    <dd>The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia,
+        American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments,
+        battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic
+        rivers and trails, and the White House. Learn more about national park designations. See the complete list of
+        National Park Service units and related areas by type and number.
+    </dd>
+    <br>
+    <br>
+    <dt>What is the largest national park site? Smallest?</dt>
+    <dd>
+        <ul>
+            <li>Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</li>
+            <br>
+            <li>Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</li>
+        </ul>
+    </dd>
+    <br>
+    <dt>How many people visit the national parks?</dt>
+    <dd>Total recreation visitors to the national parks in 2019: 327,516,619.</dd>
+    <br>
+    <br>
+    <dt>What is the most-visited national park?</dt>
+    <dd>
+        <a href="https://www.nps.gov/aboutus/faqs.htm#:~:text=View%20a%20list%20of%20the%20most%2Dvisited%20sites%20in%20the%20National%20Park%20Service"
+           target="_blank">View a list of the most-visited sites in the National Park Service.</a></dd>
+    <br>
+    <br>
+    <dt>What is the National Park Service budget?</dt>
+    <dd>
+        <ul>
+            <li>Fiscal Year (FY) 2014 Enacted: $2.98 billion</li>
+            <br>
+            <li>FY 2015 Enacted: $2.615 billion</li>
+            <br>
+            <li>FY 2016 Enacted:$2.851 billion</li>
+            <br>
+            <li>FY 2017 Enacted: $2.932 billion</li>
+        </ul>
+    </dd>
+</dl>
+<script src="/js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).ready(function () {
+
+        $('#show-answers').click(function(event) {
+            event.preventDefault();
+            $('dd').toggleClass('hidden');
+        });
+
+        $('dt').click(function() {
+            $(this).css('background-color', 'yellow');
+        })
+
+    });
+</script>
+</body>
+</html>
