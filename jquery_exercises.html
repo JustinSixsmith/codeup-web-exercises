@@ -47,8 +47,14 @@
         });
         $('p').dblclick(sizeUp);
 
-
-
+        $('li').hover(
+            function () {
+                $('li').css('color', 'red');
+            },
+            function () {
+                $('li').css('color', 'black');
+            }
+        );
     });
 </script>
 
