@@ -183,7 +183,6 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // console.log(whichStringIsLonger(1, "lou")); // returns false
 
 
-
 // function sumOfThreeNumbers(num1, num2, num3){
 //     if (typeof num1 !== "number" || typeof num2 !== "number" || typeof num3 !== "number") {
 //         return false;
@@ -197,4 +196,17 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // console.log(sumOfThreeNumbers(1, 2, true));
 
 
+// Write a function called convertLowHighToObject that takes in a string  that represents the low and high temperature in this format '35, 42' (assuming low will always be the left value and high the right) and returns an object with the properties 'low' and 'high' with the values of those respective properties set to the corresponding values in the input string.
+//     NOTE: the values in the object should be of the number type
+// Example input: '35, 42'
+// Example return: {low: 35, high: 42}
 
+
+function convertLowHighToObject(lowHigh) {
+    splitTemps = lowHigh.split(", ");
+    return {
+        low: parseInt(splitTemps[0]),
+        high: parseInt(splitTemps[1])
+    }
+}
+console.log(convertLowHighToObject("35, 42"));
