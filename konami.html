@@ -38,7 +38,7 @@
             $('h1').css('margin-top', '20px');
         }
 
-        setTimeout(noMargin, 7000);
+        setTimeout(noMargin, 5000);
 
         let randomColor = Math.floor(Math.random() * 16777215).toString(16);
         $('body').css('background-color', '#' + randomColor);
@@ -58,7 +58,7 @@
         setInterval(changeTextColor, 200);
 
         function changeTextSize() {
-            let randomTextSize = Math.floor(Math.random() * 130);
+            let randomTextSize = Math.floor(Math.random() * 120);
             $('h1').css('font-size', randomTextSize + 'px');
         }
 
@@ -70,7 +70,7 @@
                 .css('justify-content', 'center');
         }
 
-        setTimeout(playGif, 7000);
+        setTimeout(playGif, 5000);
     }
 
 
