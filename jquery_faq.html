@@ -11,6 +11,18 @@
         .invisible {
             visibility: hidden;
         }
+
+        #pic1 img{
+            border: 5px solid red;
+        }
+
+        #pic2 img{
+            border: 5px solid blue;
+        }
+
+        #pic3 img{
+            border: 5px solid green;
+        }
     </style>
 </head>
 <body>
@@ -27,7 +39,8 @@
     <br>
     <br>
     <dt>What government agency oversees the National Park Service?</dt>
-    <dd class="invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is
+    <dd class="invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing
+        its operation is
         the department's Assistant Secretary for Fish, Wildlife and Parks.
     </dd>
     <br>
@@ -42,14 +55,16 @@
     </dd>
     <br>
     <dt>How old is the National Park System?</dt>
-    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.
+    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August
+        25, 1916.
         Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as
         the nation's first national park. View the National Park System timeline.
     </dd>
     <br>
     <br>
     <dt>What is the origin of the National Park Service arrowhead?</dt>
-    <dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on
+    <dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of
+        the Interior on
         July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park
         System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water
         representing scenic and recreational values, and the arrowhead itself representing historical and archeological
@@ -58,7 +73,8 @@
     <br>
     <br>
     <dt>How many areas are in the National Park System?</dt>
-    <dd class="invisible">The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia,
+    <dd class="invisible">The system includes 423 areas covering more than 85 million acres in every state, the District
+        of Columbia,
         American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments,
         battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic
         rivers and trails, and the White House. Learn more about national park designations. See the complete list of
@@ -98,6 +114,33 @@
         </ul>
     </dd>
 </dl>
+<h3 class="park-name">Great Smoky Mountains</h3>
+<ul class="park-facts">
+    <li>Established in 1934.</li>
+    <li>America's most-visited national park</li>
+    <li>Straddles the border between North Carolina and Tennessee</li>
+    <li>Consists of 522,419 acres</li>
+</ul>
+<h3 class="park-name">Grand Canyon</h3>
+<ul class="park-facts">
+    <li>Located in Arizona</li>
+    <li>Bigger than the state of Rhode Island</li>
+    <li>Most dangerous animal in the park is the rock squirrel</li>
+    <li>Creates its own weather</li>
+</ul>
+<h3 class="park-name">Yosemite</h3>
+<ul class="park-facts">
+    <li>Located in California's Sierra Nevada Mountains</li>
+    <li>Granite rock formations glow like fire at sunset</li>
+    <li>Home to one of the tallest waterfalls in the world</li>
+    <li>The only national park to bid to host the winter Olympics</li>
+</ul>
+<button type="button" id="highlighter" style="background-color: yellow">Highlighter</button>
+<br>
+<br>
+<div id="pic1"><img src="img/smoky-mnts.jpeg"></div>
+<div id="pic2"><img src="img/grand-canyon.jpeg"></div>
+<div id="pic3"><img src="img/yosemite.jpeg"></div>
 <script src="/js/jquery-2.2.4.js"></script>
 <script>
     "use strict";
@@ -109,9 +152,27 @@
             $('dd').toggleClass('invisible');
         });
 
-        $('dt').click(function() {
+        $('dt').click(function () {
             $(this).css('background-color', 'yellow');
-        })
+        });
+
+        let highlight = (function() {
+            $(this).children().last().css('background-color', 'yellow');
+        });
+
+        $('#highlighter').click(function () {
+            $('.park-facts').each(highlight);
+        });
+
+        $('.park-name').click(function() {
+            $(this).next().children().css('font-weight', 'bold');
+        });
+
+        $('li').click(function() {
+            $(this).parent().children().first().css('color', 'blue');
+        });
+
+
 
     });
 </script>
