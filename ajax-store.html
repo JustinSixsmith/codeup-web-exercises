@@ -33,12 +33,13 @@
             // TODO: Create an AJAX GET request for the file under data/inventory.json
             $.get("/data/inventory.json").done(function (data, status, jqXhr) {
                 data.forEach(function (tool) {
+                    let toolCategories = tool.categories.join(", ");
                     let toolInfo = `
     <tr>
         <td>${tool.title}</td>
         <td>${tool.quantity}</td>
         <td>$${tool.price}</td>
-        <td>${tool.categories}</td>
+        <td>${toolCategories}</td>
     </tr>`;
                     $('#insertProducts').append(toolInfo);
                 });

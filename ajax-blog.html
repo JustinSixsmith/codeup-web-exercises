@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Ajax Blog</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                     <h1>Clean Blog</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <span class="subheading">A Codeup Ajax Blog Exercise</span>
                 </div>
             </div>
         </div>
@@ -51,11 +51,10 @@
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
-            <!-- Post preview-->
+            <!-- Blog Posts-->
             <div id="posts">
 
             </div>
-
             <!-- Pager-->
             <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
         </div>
@@ -92,7 +91,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
             </div>
         </div>
     </div>
@@ -111,11 +110,12 @@
             $.get("/data/blog.json").done(function (data, status, jqXhr) {
                 console.log(data);
                 data.forEach(function (blogItem) {
+                    let itemCategories = blogItem.categories.join(", ");
                     let blogPost = `
     <div>
-        <p>${blogItem.title}</p>
+        <h4>${blogItem.title}</h4>
         <p>${blogItem.content}</p>
-        <p>${blogItem.categories}</p>
+        <p>${itemCategories}</p>
         <p>${blogItem.date}</p>
     </div>
 <!-- Divider-->
@@ -123,8 +123,6 @@
                     $('#posts').append(blogPost);
                 });
             });
-
-
     })();
 </script>
 </body>
