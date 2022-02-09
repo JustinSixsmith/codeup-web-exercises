@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Load the `mapbox-gl-geocoder` plugin. -->
+
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+<!-- Mapbox CSS -->
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!--jQuery JS-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!--Keys JS-->
+<script src="js/keys.js"></script>
+
+<!--Mapbox Geocoder JS-->
+<!--<script src="js/mapbox-geocoder-utils.js"></script>-->
+
+<!-- Custom JS -->
+<script>
+    (function () {
+        "use strict";
+
+        var coastalEats = [
+            "Marzano's Pizza Pie 60 Laneda Ave, Manzanita, OR 97130",
+            "Gracie's Sea Hag 58 US-101 Depot Bay, OR 97341",
+            "Newport Brewing Company 1118 SW Canyon Way, Newport, OR 97365"
+        ];
+
+
+        mapboxgl.accessToken = MAPBOX_API_KEY;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 7,
+            center: [-124.061826076, 44.8109280126],
+        });
+
+
+
+            // Add the control to the map.
+            map.addControl(
+            new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+            );
+
+
+        // getMarker([-124.061826076, 44.8109280126])
+        //     .setPopup(getPopup("Gracie's Sea Hag"));
+
+        let geocoder = new MapboxGeocoder({
+            accessToken: MAPBOX_API_KEY,
+            mapboxgl: mapboxgl,
+            marker: false
+        })
+
+        geocoder.addTo(map);
+
+        function getMarker(coordinates) {
+            return new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map);
+        }
+
+        function getPopup(htmlDescription) {
+            return new mapboxgl.Popup()
+                .setHTML(htmlDescription)
+                .addTo(map);
+        }
+
+        // var hagMarker = new mapboxgl.Marker()
+        //     .setLngLat([-124.061826076, 44.8109280126])
+        //     .addTo(map);
+        //
+        // // var popup = new mapboxgl.Popup()
+        // // .setLngLat([-124.061826076, 44.8109280126])
+        // // .setHTML("<p>Gracie's Sea Hag</p>")
+        // // .addTo(map);
+        //
+        // var hagPopup = new mapboxgl.Popup()
+        //     .setHTML("<p>Gracie's Sea Hag</p>");
+        //
+        // hagMarker.setPopup(hagPopup);
+
+
+        $(document).ready(function () {
+            // the  geocode method from mapbox-geocoder-utils.js
+            // geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_API_KEY).then(function(result) {
+            //     console.log(result);
+            //     map.setCenter(result);
+            //     map.setZoom(20);
+            // });
+            // coastalEats.forEach(function (restaurant, index) {
+            //     console.log(restaurant);
+            //     geocode(restaurant, MAPBOX_API_KEY).then(function (result) {
+            //         console.log(result);
+            //         if (index === 0) {
+            //             map.setCenter(result);
+            //         }
+            //
+            //     })
+            // })
+
+
+        });
+    })();
+</script>
+</body>
+</html>
