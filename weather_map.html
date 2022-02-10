@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+</head>
+<body>
+
+</body>
+
+<script src="js/jquery-2.2.4.js"></script>
+
+<script>
+    (function () {
+        $(document).ready(function () {
+            $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: WEATHERMAP_API_KEY,
+                q:     "San Antonio, US",
+                units: "imperial"
+            }).done(function (data) {
+                console.log(data);
+            });
+
+        });
+    })();
+</script>
+
+</html>

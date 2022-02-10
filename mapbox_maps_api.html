@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>First Mapbox Map</title>
-    <!-- Load the `mapbox-gl-geocoder` plugin. -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+          type="text/css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         #map {
@@ -16,121 +20,171 @@
 </head>
 <body>
 
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
-<!-- Mapbox CSS -->
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
-
 <h1>My First Mapbox Map!</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
-<!--jQuery JS-->
+<div class="container-fluid">
+    <div id="forcast-div" class="row">
+
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-<!-- Bootstrap JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Mapbox JS -->
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
-<!--Keys JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
 <script src="js/keys.js"></script>
-
-<!--Mapbox Geocoder JS-->
-<!--<script src="js/mapbox-geocoder-utils.js"></script>-->
-
-<!-- Custom JS -->
+<script src="https://kit.fontawesome.com/a471b4d959.js" crossorigin="anonymous"></script>
 <script>
     (function () {
         "use strict";
 
-        var coastalEats = [
-            "Marzano's Pizza Pie 60 Laneda Ave, Manzanita, OR 97130",
-            "Gracie's Sea Hag 58 US-101 Depot Bay, OR 97341",
-            "Newport Brewing Company 1118 SW Canyon Way, Newport, OR 97365"
-        ];
-
-
         mapboxgl.accessToken = MAPBOX_API_KEY;
+        const STARTING_COORDS = [-98.4916, 29.4252];
+        const OPTIMAL_ZOOM_LEVEL = 15;
+
+        // Hook up mapbox js with the div
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 7,
-            center: [-124.061826076, 44.8109280126],
+            zoom: 10,
+            center: STARTING_COORDS
         });
+        let marker;
+
+        function onMoveEnd() {
+            var coords = map.getCenter();
+            // console.log(coords);
+            marker.setLngLat(coords);
+            poPopup(coords);
+        }
+
+        map.on('moveend', onMoveEnd);
 
 
-
-            // Add the control to the map.
-            map.addControl(
-            new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
+        /* Given a query in the form "lng, lat" or "lat, lng"
+* returns the matching geographic coordinate(s)
+* as search results in carmen geojson format,
+* https://github.com/mapbox/carmen/blob/master/carmen-geojson.md */
+        const coordinatesGeocoder = function (query) {
+// Match anything which looks like
+// decimal degrees coordinate pair.
+            const matches = query.match(
+                /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
             );
+            if (!matches) {
+                return null;
+            }
 
+            function coordinateFeature(lng, lat) {
+                return {
+                    center: [lng, lat],
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [lng, lat]
+                    },
+                    place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+                    place_type: ['coordinate'],
+                    properties: {},
+                    type: 'Feature'
+                };
+            }
 
-        // getMarker([-124.061826076, 44.8109280126])
-        //     .setPopup(getPopup("Gracie's Sea Hag"));
+            const coord1 = Number(matches[1]);
+            const coord2 = Number(matches[2]);
+            const geocodes = [];
 
-        let geocoder = new MapboxGeocoder({
-            accessToken: MAPBOX_API_KEY,
-            mapboxgl: mapboxgl,
-            marker: false
-        })
+            if (coord1 < -90 || coord1 > 90) {
+// must be lng, lat
+                geocodes.push(coordinateFeature(coord1, coord2));
+            }
 
-        geocoder.addTo(map);
+            if (coord2 < -90 || coord2 > 90) {
+// must be lat, lng
+                geocodes.push(coordinateFeature(coord2, coord1));
+            }
 
-        function getMarker(coordinates) {
-            return new mapboxgl.Marker()
-                .setLngLat(coordinates)
-                .addTo(map);
-        }
+            if (geocodes.length === 0) {
+// else could be either lng, lat or lat, lng
+                geocodes.push(coordinateFeature(coord1, coord2));
+                geocodes.push(coordinateFeature(coord2, coord1));
+            }
 
-        function getPopup(htmlDescription) {
-            return new mapboxgl.Popup()
-                .setHTML(htmlDescription)
-                .addTo(map);
-        }
+            return geocodes;
+        };
 
-        // var hagMarker = new mapboxgl.Marker()
-        //     .setLngLat([-124.061826076, 44.8109280126])
-        //     .addTo(map);
-        //
-        // // var popup = new mapboxgl.Popup()
-        // // .setLngLat([-124.061826076, 44.8109280126])
-        // // .setHTML("<p>Gracie's Sea Hag</p>")
-        // // .addTo(map);
-        //
-        // var hagPopup = new mapboxgl.Popup()
-        //     .setHTML("<p>Gracie's Sea Hag</p>");
-        //
-        // hagMarker.setPopup(hagPopup);
+        // Add the control to the map.
+        map.addControl(
+            new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                localGeocoder: coordinatesGeocoder,
+                zoom: OPTIMAL_ZOOM_LEVEL,
+                placeholder: 'Try: -40, 170',
+                mapboxgl: mapboxgl,
+                marker: false,
+                reverseGeocode: true
+            })
+        );
 
 
         $(document).ready(function () {
-            // the  geocode method from mapbox-geocoder-utils.js
-            // geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_API_KEY).then(function(result) {
-            //     console.log(result);
-            //     map.setCenter(result);
-            //     map.setZoom(20);
-            // });
-            // coastalEats.forEach(function (restaurant, index) {
-            //     console.log(restaurant);
-            //     geocode(restaurant, MAPBOX_API_KEY).then(function (result) {
-            //         console.log(result);
-            //         if (index === 0) {
-            //             map.setCenter(result);
-            //         }
-            //
-            //     })
-            // })
+            // Create a new marker.
+            marker = new mapboxgl.Marker({
+                draggable: true
+            })
+                .setLngLat(STARTING_COORDS)
+                .addTo(map);
 
+            marker.on('dragend', whatPo)
 
         });
+
+        function whatPo() {
+            //grab marker coords wherever it's dropped
+            const coords = marker.getLngLat();
+            console.log(coords);
+
+            //make a popup for the coords and attach it to the marker
+            poPopup(coords);
+        }
+
+        function poPopup(coords) {
+            //make an array out of the coords object
+            const coordArray = [coords.lng, coords.lat];
+            const popup = new mapboxgl.Popup({closeOnClick: false})
+                .setLngLat(coordArray)
+                .setHTML('<p>' + coords + '</p>')
+            marker.setPopup(popup);
+            popup.addTo(map);
+            forecastStuffForCoords(coordArray);
+        }
+
+
+
+
+        //coords is an array of [lng, lat]
+        function forecastStuffForCoords(coords) {
+            let lng = coords[0];
+            let lat = coords[1];
+            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=-${lng}&exclude=hourly,minutely&appid=${WEATHERMAP_API_KEY}&units=imperial`)
+                .done(function (data) {
+                    console.log(data);
+
+//output daily forecast to wherever in our page we want to
+                    let html = `
+<div class="col-12">
+    <p>${coords.join(", ")}</p>
+</div>
+`;
+                    $("#forcast-div").html(html)
+
+                });
+        }
     })();
 </script>
 </body>
