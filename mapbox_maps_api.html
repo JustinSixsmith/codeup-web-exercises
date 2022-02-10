@@ -158,7 +158,7 @@
             const coordArray = [coords.lng, coords.lat];
             const popup = new mapboxgl.Popup({closeOnClick: false})
                 .setLngLat(coordArray)
-                .setHTML('<p>' + coords + '</p>')
+                .setHTML('<p>' + coordArray.join(', ') + '</p>')
             marker.setPopup(popup);
             popup.addTo(map);
             forecastStuffForCoords(coordArray);
@@ -171,14 +171,17 @@
         function forecastStuffForCoords(coords) {
             let lng = coords[0];
             let lat = coords[1];
-            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=-${lng}&exclude=hourly,minutely&appid=${WEATHERMAP_API_KEY}&units=imperial`)
+            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${WEATHERMAP_API_KEY}&units=imperial`)
                 .done(function (data) {
                     console.log(data);
 
-//output daily forecast to wherever in our page we want to
-                    let html = `
+// output 5-day forecast to wherever in our page we want it
+                    var todaysHiTemp = data.daily[0].temp.max;
+                    var tomorrowsHiTemp = data.daily[1].temp.max;
+                    var html = `
 <div class="col-12">
-    <p>${coords.join(", ")}</p>
+    <p>Today's high is ${todaysHiTemp}</p>
+    <p>Tomorrow's high is ${tomorrowsHiTemp}</p>
 </div>
 `;
                     $("#forcast-div").html(html)
