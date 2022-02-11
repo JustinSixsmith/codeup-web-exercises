@@ -9,7 +9,6 @@
           href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
           type="text/css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
-    <link href="js/mapbox-geocoder-utils.js">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/weather-map.css">
 </head>
@@ -27,20 +26,6 @@
             <div id="geocoder" class="geocoder">
 
             </div>
-            <!--            <form class="row g-3">-->
-            <!--                <div class="col-auto">-->
-            <!--                    <label for="location-search" class="visually-hidden">Search</label>-->
-            <!--                    <input type="text" readonly class="form-control-plaintext" id="location-search"-->
-            <!--                           value="Get forecast by location">-->
-            <!--                </div>-->
-            <!--                <div class="col-auto">-->
-            <!--                    <label for="location-search" class="visually-hidden">Search</label>-->
-            <!--                    <input type="text" class="form-control" id="enter-location" placeholder="Enter Location">-->
-            <!--                </div>-->
-            <!--                <div class="col-auto">-->
-            <!--                    <button type="submit" class="btn btn-primary mb-3">Find</button>-->
-            <!--                </div>-->
-            </form>
         </div>
     </a>
     <div id="forcast-div">
@@ -59,6 +44,7 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script src="https://kit.fontawesome.com/a471b4d959.js" crossorigin="anonymous"></script>
 <script>
     (function () {
@@ -201,6 +187,8 @@
                     $("#forcast-div").html("");
 // output 5-day forecast to wherever in our page we want it
                     for (let i = 0; i < 5; i++) {
+                        var date = new Date(data.daily[i].dt * 1000).toISOString().split("T")[0];
+                        console.log(date);
                         var hiTemp = parseInt(data.daily[i].temp.max);
                         var lowTemp = parseInt(data.daily[i].temp.min);
                         var iconCode = data.daily[i].weather[0].icon;
@@ -211,10 +199,13 @@
                         var html =
                             `<div class="card" style="flex-basis: 18rem;">
                             <div class="card-header">
-                                Date
+                                ${date}
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li id="temp" class="list-group-item"><p><strong>H:${hiTemp}° L:${lowTemp}°</strong></p></li>
+                                <li id="temp" class="list-group-item">
+                                <p><strong>H:${hiTemp}° L:${lowTemp}°</strong></p>
+                                <img src="http://openweathermap.org/img/w/${iconCode}.png" alt="weather icon">
+                                </li>
                                 <li class="list-group-item"><p>Description: <strong>${description}</strong></P>
                                 Humidity: <strong>${humidity}%</strong></li>
                                 <li class="list-group-item">Wind: <strong>${wind}</strong> mph</li>
@@ -225,13 +216,16 @@
                         $("#forcast-div").append(html);
                     }
 
-                    reverseGeocode()
-
-                    $("#city-location").html("Current city: " + reverseGeocode({
+                    reverseGeocode({
                         lng: lng,
                         lat: lat
                     },
-                    MAPBOX_API_KEY));
+                    MAPBOX_API_KEY).then(function(result) {
+                        let location = result.split(", ");
+                        let city = location[location.length - 3] + ", " + location[location.length - 2];
+                        console.log(city);
+                        $("#city-location").html("<strong>Current location: </strong>" + city);
+                    })
                 });
         }
 
