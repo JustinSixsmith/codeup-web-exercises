@@ -9,27 +9,47 @@
           href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
           type="text/css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <link href="js/mapbox-geocoder-utils.js">
     <!-- Custom CSS -->
-    <style>
-        #map {
-            /* the width and height may be set to any size */
-            width: 100%;
-            height: 700px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/weather-map.css">
 </head>
 <body>
 
-<h1>My First Mapbox Map!</h1>
+<div class="container list-group">
+    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Weather App</h5>
+            <small id="city-location"></small>
+        </div>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-start mt-2">
+            <div id="geocoder" class="geocoder">
 
-<!-- The HTML element that serves as the Mapbox container -->
-<div id='map'></div>
-
-<div class="container-fluid">
-    <div id="forcast-div" class="row">
+            </div>
+            <!--            <form class="row g-3">-->
+            <!--                <div class="col-auto">-->
+            <!--                    <label for="location-search" class="visually-hidden">Search</label>-->
+            <!--                    <input type="text" readonly class="form-control-plaintext" id="location-search"-->
+            <!--                           value="Get forecast by location">-->
+            <!--                </div>-->
+            <!--                <div class="col-auto">-->
+            <!--                    <label for="location-search" class="visually-hidden">Search</label>-->
+            <!--                    <input type="text" class="form-control" id="enter-location" placeholder="Enter Location">-->
+            <!--                </div>-->
+            <!--                <div class="col-auto">-->
+            <!--                    <button type="submit" class="btn btn-primary mb-3">Find</button>-->
+            <!--                </div>-->
+            </form>
+        </div>
+    </a>
+    <div id="forcast-div">
 
     </div>
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div id='map'></div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -56,12 +76,13 @@
             center: STARTING_COORDS
         });
         let marker;
+        let coords;
 
         function onMoveEnd() {
             var coords = map.getCenter();
             // console.log(coords);
             marker.setLngLat(coords);
-            poPopup(coords);
+            // poPopup(coords);
         }
 
         map.on('moveend', onMoveEnd);
@@ -119,27 +140,30 @@
         };
 
         // Add the control to the map.
-        map.addControl(
-            new MapboxGeocoder({
-                accessToken: mapboxgl.accessToken,
-                localGeocoder: coordinatesGeocoder,
-                zoom: OPTIMAL_ZOOM_LEVEL,
-                placeholder: 'Enter location',
-                mapboxgl: mapboxgl,
-                marker: false,
-                reverseGeocode: true
-            })
-        );
+        // map.addControl(
+        let geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            localGeocoder: coordinatesGeocoder,
+            zoom: OPTIMAL_ZOOM_LEVEL,
+            placeholder: 'Enter location',
+            mapboxgl: mapboxgl,
+            marker: false,
+            reverseGeocode: true
+        })
+        // );
 
 
         $(document).ready(function () {
+
+            document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
             // Create a new marker.
             marker = new mapboxgl.Marker({
                 draggable: true
             })
                 .setLngLat(STARTING_COORDS)
                 .addTo(map);
-
+            whatPo();
             marker.on('dragend', whatPo)
 
         });
@@ -159,12 +183,10 @@
             const popup = new mapboxgl.Popup({closeOnClick: false})
                 .setLngLat(coordArray)
                 .setHTML('<p>' + coordArray.join(', ') + '</p>')
-            marker.setPopup(popup);
-            popup.addTo(map);
+            // marker.setPopup(popup);
+            // popup.addTo(map);
             forecastStuffForCoords(coordArray);
         }
-
-
 
 
         //coords is an array of [lng, lat]
@@ -175,21 +197,45 @@
                 units: "imperial"
             })
                 .done(function (data) {
-                    console.log('5 day forecast', data);
-
+                    console.log(data);
+                    $("#forcast-div").html("");
 // output 5-day forecast to wherever in our page we want it
-                    var todaysHiTemp = data.daily[0].temp.max;
-                    var tomorrowsHiTemp = data.daily[1].temp.max;
-                    var html = `
-<div class="col-12">
-    <p>Today's high is ${todaysHiTemp}</p>
-    <p>Tomorrow's high is ${tomorrowsHiTemp}</p>
-</div>
-`;
-                    $("#forcast-div").html(html)
+                    for (let i = 0; i < 5; i++) {
+                        var hiTemp = parseInt(data.daily[i].temp.max);
+                        var lowTemp = parseInt(data.daily[i].temp.min);
+                        var iconCode = data.daily[i].weather[0].icon;
+                        var description = data.daily[i].weather[0].description.charAt(0).toUpperCase() + data.daily[i].weather[0].description.slice(1).toLowerCase();
+                        var humidity = data.daily[i].humidity;
+                        var wind = parseInt(data.daily[i].wind_speed);
+                        var pressure = data.daily[i].pressure;
+                        var html =
+                            `<div class="card" style="flex-basis: 18rem;">
+                            <div class="card-header">
+                                Date
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li id="temp" class="list-group-item"><p><strong>H:${hiTemp}° L:${lowTemp}°</strong></p></li>
+                                <li class="list-group-item"><p>Description: <strong>${description}</strong></P>
+                                Humidity: <strong>${humidity}%</strong></li>
+                                <li class="list-group-item">Wind: <strong>${wind}</strong> mph</li>
+                                <li class="list-group-item">Pressure: <strong>${pressure}</strong> inHg</li>
+                            </ul>
+                        </div>`;
 
+                        $("#forcast-div").append(html);
+                    }
+
+                    reverseGeocode()
+
+                    $("#city-location").html("Current city: " + reverseGeocode({
+                        lng: lng,
+                        lat: lat
+                    },
+                    MAPBOX_API_KEY));
                 });
         }
+
+
     })();
 </script>
 </body>
