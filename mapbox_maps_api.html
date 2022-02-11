@@ -5,10 +5,10 @@
     <title>First Mapbox Map</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet"
           href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
           type="text/css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         #map {
@@ -21,6 +21,16 @@
 <body>
 
 <h1>My First Mapbox Map!</h1>
+
+<select name="zoom-select" id="zoom-select">
+    <option selected disabled>Zoom Select</option>
+    <option value="5">Zoom level 5</option>
+    <option value="7">Zoom level 7</option>
+    <option value="9">Zoom level 9</option>
+    <option value="11">Zoom level 11</option>
+    <option value="13">Zoom level 13</option>
+    <option value="15">Zoom level 15</option>
+</select>
 
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
@@ -38,156 +48,80 @@
         crossorigin="anonymous"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/keys.js"></script>
 <script src="https://kit.fontawesome.com/a471b4d959.js" crossorigin="anonymous"></script>
 <script>
     (function () {
         "use strict";
+        const STARTING_COORDS = [-124.0632, 44.8084];
+        const OPTIMAL_ZOOM_LEVEL = 7;
+
+        var coastalEats = [
+            {
+                name: "Gracie's Sea Hag",
+                city: "Depoe Bay, OR",
+                type: "Seafood"
+            },
+            {
+                name: "Marzano's Pizza Pie",
+                city: "Manzanita, OR",
+                type: "Pizza"
+            },
+            {
+                name: "Rising Star Cafe",
+                city: "Wheeler, OR",
+                type: "Fine Dining"
+            }
+        ]
+
 
         mapboxgl.accessToken = MAPBOX_API_KEY;
-        const STARTING_COORDS = [-98.4916, 29.4252];
-        const OPTIMAL_ZOOM_LEVEL = 15;
-
-        // Hook up mapbox js with the div
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 10,
+            zoom: OPTIMAL_ZOOM_LEVEL,
             center: STARTING_COORDS
         });
-        let marker;
 
-        function onMoveEnd() {
-            var coords = map.getCenter();
-            // console.log(coords);
-            marker.setLngLat(coords);
-            poPopup(coords);
-        }
-
-        map.on('moveend', onMoveEnd);
-
-
-        /* Given a query in the form "lng, lat" or "lat, lng"
-* returns the matching geographic coordinate(s)
-* as search results in carmen geojson format,
-* https://github.com/mapbox/carmen/blob/master/carmen-geojson.md */
-        const coordinatesGeocoder = function (query) {
-// Match anything which looks like
-// decimal degrees coordinate pair.
-            const matches = query.match(
-                /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-            );
-            if (!matches) {
-                return null;
-            }
-
-            function coordinateFeature(lng, lat) {
-                return {
-                    center: [lng, lat],
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [lng, lat]
-                    },
-                    place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-                    place_type: ['coordinate'],
-                    properties: {},
-                    type: 'Feature'
-                };
-            }
-
-            const coord1 = Number(matches[1]);
-            const coord2 = Number(matches[2]);
-            const geocodes = [];
-
-            if (coord1 < -90 || coord1 > 90) {
-// must be lng, lat
-                geocodes.push(coordinateFeature(coord1, coord2));
-            }
-
-            if (coord2 < -90 || coord2 > 90) {
-// must be lat, lng
-                geocodes.push(coordinateFeature(coord2, coord1));
-            }
-
-            if (geocodes.length === 0) {
-// else could be either lng, lat or lat, lng
-                geocodes.push(coordinateFeature(coord1, coord2));
-                geocodes.push(coordinateFeature(coord2, coord1));
-            }
-
-            return geocodes;
-        };
 
         // Add the control to the map.
         map.addControl(
             new MapboxGeocoder({
                 accessToken: mapboxgl.accessToken,
-                localGeocoder: coordinatesGeocoder,
                 zoom: OPTIMAL_ZOOM_LEVEL,
-                placeholder: 'Try: -40, 170',
+                placeholder: 'Where to?',
                 mapboxgl: mapboxgl,
-                marker: false,
-                reverseGeocode: true
             })
         );
-
+        let marker;
 
         $(document).ready(function () {
-            // Create a new marker.
-            marker = new mapboxgl.Marker({
-                draggable: true
-            })
-                .setLngLat(STARTING_COORDS)
-                .addTo(map);
+            coastalEats.forEach(function(restaurant) {
 
-            marker.on('dragend', whatPo)
+                geocode(restaurant.name, MAPBOX_API_KEY).then(function (coords) {
+                    // map.setCenter(coords)
+                    marker = new mapboxgl.Marker({})
+                        .setLngLat(coords)
+                        .addTo(map);
+
+                    var hagPopup = new mapboxgl.Popup()
+                        .setHTML("<p>" + restaurant.name + "</p>")
+
+                    marker.setPopup(hagPopup);
+                })
+            })
+
+            $("#zoom-select").change(function () {
+                console.log("zoom level change");
+                var zoomValue = $("#zoom-select").val()
+                map.setZoom(zoomValue)
+                console.log(zoomValue);
+            })
 
         });
 
-        function whatPo() {
-            //grab marker coords wherever it's dropped
-            const coords = marker.getLngLat();
-            console.log(coords);
 
-            //make a popup for the coords and attach it to the marker
-            poPopup(coords);
-        }
-
-        function poPopup(coords) {
-            //make an array out of the coords object
-            const coordArray = [coords.lng, coords.lat];
-            const popup = new mapboxgl.Popup({closeOnClick: false})
-                .setLngLat(coordArray)
-                .setHTML('<p>' + coordArray.join(', ') + '</p>')
-            marker.setPopup(popup);
-            popup.addTo(map);
-            forecastStuffForCoords(coordArray);
-        }
-
-
-
-
-        //coords is an array of [lng, lat]
-        function forecastStuffForCoords(coords) {
-            let lng = coords[0];
-            let lat = coords[1];
-            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${WEATHERMAP_API_KEY}&units=imperial`)
-                .done(function (data) {
-                    console.log(data);
-
-// output 5-day forecast to wherever in our page we want it
-                    var todaysHiTemp = data.daily[0].temp.max;
-                    var tomorrowsHiTemp = data.daily[1].temp.max;
-                    var html = `
-<div class="col-12">
-    <p>Today's high is ${todaysHiTemp}</p>
-    <p>Tomorrow's high is ${tomorrowsHiTemp}</p>
-</div>
-`;
-                    $("#forcast-div").html(html)
-
-                });
-        }
     })();
 </script>
 </body>
