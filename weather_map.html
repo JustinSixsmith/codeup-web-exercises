@@ -128,7 +128,6 @@
         };
 
         // Add the control to the map.
-        // map.addControl(
         let geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             localGeocoder: coordinatesGeocoder,
@@ -137,8 +136,7 @@
             mapboxgl: mapboxgl,
             marker: false,
             reverseGeocode: true
-        })
-        // );
+        });
 
 
         $(document).ready(function () {
