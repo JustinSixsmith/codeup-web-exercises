@@ -197,30 +197,34 @@
                         var wind = parseInt(data.daily[i].wind_speed);
                         var pressure = data.daily[i].pressure;
                         var html =
-                            `<div class="card" style="flex-basis: 18rem;">
-                            <div class="card-header">
-                                ${date}
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li id="temp" class="list-group-item">
-                                <p><strong>H:${hiTemp}° L:${lowTemp}°</strong></p>
-                                <img src="http://openweathermap.org/img/w/${iconCode}.png" alt="weather icon">
-                                </li>
-                                <li class="list-group-item"><p>Description: <strong>${description}</strong></P>
-                                Humidity: <strong>${humidity}%</strong></li>
-                                <li class="list-group-item">Wind: <strong>${wind}</strong> mph</li>
-                                <li class="list-group-item">Pressure: <strong>${pressure}</strong> inHg</li>
-                            </ul>
-                        </div>`;
+                            //language=HTML
+                                `
+                                    <div class="card" style="flex-basis: 18rem;">
+                                        <div class="card-header">
+                                            ${date}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li id="temp" class="list-group-item">
+                                                <p><strong>H:${hiTemp}° L:${lowTemp}°</strong></p>
+                                                <img src="http://openweathermap.org/img/w/${iconCode}.png"
+                                                     alt="weather icon">
+                                            </li>
+                                            <li class="list-group-item"><p>Description: <strong>${description}</strong>
+                                            </P>
+                                                Humidity: <strong>${humidity}%</strong></li>
+                                            <li class="list-group-item">Wind: <strong>${wind}</strong> mph</li>
+                                            <li class="list-group-item">Pressure: <strong>${pressure}</strong> inHg</li>
+                                        </ul>
+                                    </div>`;
 
                         $("#forcast-div").append(html);
                     }
 
                     reverseGeocode({
-                        lng: lng,
-                        lat: lat
-                    },
-                    MAPBOX_API_KEY).then(function(result) {
+                            lng: lng,
+                            lat: lat
+                        },
+                        MAPBOX_API_KEY).then(function (result) {
                         let location = result.split(", ");
                         let city = location[location.length - 3] + ", " + location[location.length - 2];
                         console.log(city);
