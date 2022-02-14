@@ -59,7 +59,7 @@
         // Hook up mapbox js with the div
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v9',
+            style: 'mapbox://styles/mapbox/satellite-streets-v11',
             zoom: 10,
             center: STARTING_COORDS
         });
@@ -181,7 +181,7 @@
         function forecastStuffForCoords(coords) {
             let lng = coords[0];
             let lat = coords[1];
-            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${WEATHERMAP_API_KEY}&units=imperial`, {
+            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${DOCROB_OPENWEATHER_API_KEY}&units=imperial`, {
                 units: "imperial"
             })
                 .done(function (data) {
@@ -192,8 +192,8 @@
 
 // output 5-day forecast to wherever in our page we want it
                     for (let i = 0; i < 5; i++) {
-                        let date = new Date(data.daily[i].dt * 1000).toISOString().split("T")[0];
-                        // console.log(date);
+                        let date = new Date(data.daily[i].dt * 1000).toDateString().slice(0, -5);
+                        console.log(date);
                         let hiTemp = parseInt(data.daily[i].temp.max);
                         let lowTemp = parseInt(data.daily[i].temp.min);
                         let iconCode = data.daily[i].weather[0].icon;
@@ -206,7 +206,7 @@
                                 `
                                     <div class="card" style="flex-basis: 18rem;">
                                         <div class="card-header">
-                                            ${date}
+                                            <strong>${date}</strong>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li id="temp" class="list-group-item">
@@ -254,7 +254,7 @@
                 $("body").css("background-image", "url('img/snow-rain.gif')").css("background-size", "cover");
             } else if (descript === "light rain") {
                 console.log(descript);
-                $("body").css("background-image", "url('img/rain.gif')").css("background-size", "cover");
+                $("body").css("background-image", "url('img/rain-clouds.jpeg')").css("background-size", "cover");
             } else if (descript === "rain" || descript === "moderate rain") {
                 console.log(descript);
                 $("body").css("background-image", "url('img/rain.gif')").css("background-size", "cover");
