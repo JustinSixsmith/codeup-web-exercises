@@ -70,6 +70,8 @@
             var coords = map.getCenter();
             // console.log(coords);
             marker.setLngLat(coords);
+            let coordArray = [coords.lng, coords.lat];
+            forecastStuffForCoords(coordArray);
             // poPopup(coords);
         }
 
@@ -80,10 +82,10 @@
 * returns the matching geographic coordinate(s)
 * as search results in carmen geojson format,
 * https://github.com/mapbox/carmen/blob/master/carmen-geojson.md */
-        const coordinatesGeocoder = function (query) {
+        let coordinatesGeocoder = function (query) {
 // Match anything which looks like
 // decimal degrees coordinate pair.
-            const matches = query.match(
+            let matches = query.match(
                 /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
             );
             if (!matches) {
@@ -104,9 +106,9 @@
                 };
             }
 
-            const coord1 = Number(matches[1]);
-            const coord2 = Number(matches[2]);
-            const geocodes = [];
+            let coord1 = Number(matches[1]);
+            let coord2 = Number(matches[2]);
+            let geocodes = [];
 
             if (coord1 < -90 || coord1 > 90) {
 // must be lng, lat
@@ -156,8 +158,8 @@
 
         function whatPo() {
             //grab marker coords wherever it's dropped
-            const coords = marker.getLngLat();
-            console.log(coords);
+            let coords = marker.getLngLat();
+            // console.log(coords);
 
             //make a popup for the coords and attach it to the marker
             poPopup(coords);
@@ -165,8 +167,8 @@
 
         function poPopup(coords) {
             //make an array out of the coords object
-            const coordArray = [coords.lng, coords.lat];
-            const popup = new mapboxgl.Popup({closeOnClick: false})
+            let coordArray = [coords.lng, coords.lat];
+            let popup = new mapboxgl.Popup({closeOnClick: false})
                 .setLngLat(coordArray)
                 .setHTML('<p>' + coordArray.join(', ') + '</p>')
             // marker.setPopup(popup);
@@ -183,20 +185,23 @@
                 units: "imperial"
             })
                 .done(function (data) {
-                    console.log(data);
+                    // console.log(data);
                     $("#forcast-div").html("");
+                    let descript = data.daily[0].weather[0].description;
+                    changeBackground(descript);
+
 // output 5-day forecast to wherever in our page we want it
                     for (let i = 0; i < 5; i++) {
-                        var date = new Date(data.daily[i].dt * 1000).toISOString().split("T")[0];
-                        console.log(date);
-                        var hiTemp = parseInt(data.daily[i].temp.max);
-                        var lowTemp = parseInt(data.daily[i].temp.min);
-                        var iconCode = data.daily[i].weather[0].icon;
-                        var description = data.daily[i].weather[0].description.charAt(0).toUpperCase() + data.daily[i].weather[0].description.slice(1).toLowerCase();
-                        var humidity = data.daily[i].humidity;
-                        var wind = parseInt(data.daily[i].wind_speed);
-                        var pressure = data.daily[i].pressure;
-                        var html =
+                        let date = new Date(data.daily[i].dt * 1000).toISOString().split("T")[0];
+                        // console.log(date);
+                        let hiTemp = parseInt(data.daily[i].temp.max);
+                        let lowTemp = parseInt(data.daily[i].temp.min);
+                        let iconCode = data.daily[i].weather[0].icon;
+                        let description = data.daily[i].weather[0].description.charAt(0).toUpperCase() + data.daily[i].weather[0].description.slice(1).toLowerCase();
+                        let humidity = data.daily[i].humidity;
+                        let wind = parseInt(data.daily[i].wind_speed);
+                        let pressure = data.daily[i].pressure;
+                        let html =
                             //language=HTML
                                 `
                                     <div class="card" style="flex-basis: 18rem;">
@@ -218,6 +223,7 @@
                                     </div>`;
 
                         $("#forcast-div").append(html);
+
                     }
 
                     reverseGeocode({
@@ -227,12 +233,51 @@
                         MAPBOX_API_KEY).then(function (result) {
                         let location = result.split(", ");
                         let city = location[location.length - 3] + ", " + location[location.length - 2];
-                        console.log(city);
+                        // console.log(city);
                         $("#city-location").html("<strong>Current location: </strong>" + city);
                     })
                 });
         }
 
+        function changeBackground(descript) {
+            if (descript === "snow") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/dense-snow-falling-gif.gif')").css("background-size", "cover");
+            } else if (descript === "light snow") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/light-snow.gif')").css("background-size", "cover");
+            } else if (descript === "heavy intensity rain") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/heavy-rain.gif')").css("background-size", "cover");
+            } else if (descript === "rain and snow") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/snow-rain.gif')").css("background-size", "cover");
+            } else if (descript === "light rain") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/rain.gif')").css("background-size", "cover");
+            } else if (descript === "rain" || descript === "moderate rain") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/rain.gif')").css("background-size", "cover");
+            } else if (descript === "few clouds") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/few-clouds.jpeg')").css("background-size", "cover");
+            } else if (descript === "overcast clouds") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/overcast.jpeg')").css("background-size", "cover");
+            } else if (descript === "few clouds") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/few-clouds.jpeg')").css("background-size", "cover");
+            } else if (descript === "broken clouds") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/broken-clouds.jpeg')").css("background-size", "cover");
+            } else if (descript === "clear sky") {
+                console.log(descript);
+                $("body").css("background-image", "url('img/clear-sky.jpeg')").css("background-size", "cover");
+            } else {
+                console.log(descript);
+                $("body").css("background-image", "url('img/few-clouds.jpeg')").css("background-size", "cover");
+            }
+        }
 
     })();
 </script>
