@@ -19,16 +19,16 @@ getEventDateByUserName("JustinSixsmith").then(event => console.log(event));
 
 
 
-function wait(aNum) {
+function wait(milliseconds) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (Math.random() > 0.2) {
-                let time = aNum / 1000;
-                resolve("You'll see this after " + time + " seconds.");
+            if (Math.random() > 0.1) {
+                let seconds = milliseconds / 1000;
+                resolve("You'll see this after " + seconds + " seconds.");
             } else {
                 reject('Your request was denied!');
             }
-        }, aNum);
+        }, milliseconds);
     });
 }
 
