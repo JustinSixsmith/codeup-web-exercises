@@ -202,11 +202,35 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 // Example return: {low: 35, high: 42}
 
 
-function convertLowHighToObject(lowHigh) {
-    splitTemps = lowHigh.split(", ");
-    return {
-        low: parseInt(splitTemps[0]),
-        high: parseInt(splitTemps[1])
-    }
+// function convertLowHighToObject(lowHigh) {
+//     splitTemps = lowHigh.split(", ");
+//     return {
+//         low: parseInt(splitTemps[0]),
+//         high: parseInt(splitTemps[1])
+//     }
+// }
+// console.log(convertLowHighToObject("35, 42"));
+
+
+// Write a function called countDuplicates that takes in a string and returns an object that contains the count for each letter within the given string.
+//     ex: countDuplicates("adsjfdsfsfjsdjfhacabcsbajda")
+// returns { a: 5, d: 4, s: 5, j: 4, f: 4, h: 1, c: 2, b: 2 }
+
+
+
+
+
+function countDuplicates(string) {
+    let letters = string.split("");
+    let letterCountObject = letters.reduce((letterCounts, letter) => {
+        if (typeof letterCounts[letter] === 'undefined') {
+            letterCounts[letter] = 1;
+        } else {
+            letterCounts[letter] += 1;
+        }
+        return letterCounts;
+    }, {});
+    return letterCountObject;
 }
-console.log(convertLowHighToObject("35, 42"));
+
+console.log(countDuplicates("Jeremiah was a bullfrog."));
