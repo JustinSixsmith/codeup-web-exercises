@@ -220,17 +220,48 @@ var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "re
 
 
 
-function countDuplicates(string) {
-    let letters = string.split("");
-    let letterCountObject = letters.reduce((letterCounts, letter) => {
-        if (typeof letterCounts[letter] === 'undefined') {
-            letterCounts[letter] = 1;
-        } else {
-            letterCounts[letter] += 1;
-        }
-        return letterCounts;
-    }, {});
-    return letterCountObject;
+// function countDuplicates(string) {
+//     let letters = string.split("");
+//     let letterCountObject = letters.reduce((letterCounts, letter) => {
+//         if (typeof letterCounts[letter] === 'undefined') {
+//             letterCounts[letter] = 1;
+//         } else {
+//             letterCounts[letter] += 1;
+//         }
+//         return letterCounts;
+//     }, {});
+//     return letterCountObject;
+// }
+//
+// console.log(countDuplicates("Jeremiah was a bullfrog."));
+
+
+
+// Write a function called makePerson. It takes 2 arguments: personName and age.
+//     personName must be at least 1 character long. age must be between 1 and 150.
+// If either of the parameters is invalid, output an appropriate message to the console and return FALSE.
+//     If both parameters are valid, return an object containing personName and age.
+//     E.g.,
+//     console.log(makePerson("Bob", 30)); // outputs {personName:"Bob", age:30}
+// console.log(makePerson("", 30));
+// // outputs:
+// Person name cannot be blank
+// false
+
+function makePerson(name, age) {
+    if (typeof name !== "string" || typeof age !== "number" ) {
+        return false;
+    }
+    if (name.length === 0) {
+        return "Name cannot be blank!";
+    }
+    if (name && age) {
+        return "(\"" + name + "\", " + age + ")";
+    }
 }
 
-console.log(countDuplicates("Jeremiah was a bullfrog."));
+console.log(makePerson("", 34));
+console.log(makePerson("John", "John"));
+console.log(makePerson(34, 34));
+console.log(makePerson(null, 34));
+console.log(makePerson("John", 34));
